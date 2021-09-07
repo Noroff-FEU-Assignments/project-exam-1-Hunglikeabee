@@ -6,12 +6,46 @@
     <meta name="viewport" content="width='device-width', initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/index.css">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/409a57b09b.js" crossorigin="anonymous"></script>
+    <title>Renovation Dad</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <div class="logo"></div>
+        <div class="hamburger__container">
+            <label for="hamburger" class="hamburger__icon-menu" tabindex="0"><i class="fas fa-bars"></i></label>
+            <input type="checkbox" id="hamburger">
+            <div class="hamburger__dropdown-menu">
+                <a href="index.html">HOME</a>
+                <a href="posts.html">BLOGS</a>
+                <a href="contact.html">CONTACT</a>
+                <a href="about.html">ABOUT</a>
+            </div>
+            <nav>
+                <li>
+                    <ul>HOME</ul>
+                    <ul>BLOGS</ul>
+                    <ul>CONTACT</ul>
+                    <ul>ABOUT</ul>
+                </li>
+            </nav>
+        </div>
+        <nav>
+            <li></li>
+        </nav>
+    </header>
     <main>
-        <h1>Min Blogg</h1>
+        <section class="index-top">
+            <div class="index-photo"></div>
+            <div class="search-bar"></div>
+            <div class="welcome-message"></div>
+        </section>
+        <section class="carousel__container">
+            <button class="carousel__left-button"><i class="fas fa-arrow-circle-left"></i></button>
+            <div class="index-carousel"></div>
+            <button class="carousel__right-button"><i class="fas fa-arrow-circle-right"></i></button>
+        </section>
     </main>
     <footer></footer>
     <script src="js/index.js"></script>

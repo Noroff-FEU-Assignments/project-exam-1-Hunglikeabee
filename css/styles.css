@@ -1,0 +1,140 @@
+@import "variables/variables.css";
+
+/* HTML */
+html {
+  background: var(--black);
+  padding: 10px;
+}
+
+/* Body */
+
+body {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  border-radius: var(--defaultradius);
+}
+
+/* Header */
+
+header {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  background-color: var(--white);
+  border-radius: var(--defaultradius);
+}
+
+.logo {
+  background-image: url("../images/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 40px;
+  min-width: 100px;
+  height: 120px;
+}
+
+/* Hamburger menu */
+.hamburger__container {
+  position: relative;
+}
+
+.hamburger__icon-menu {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#hamburger {
+  display: none;
+}
+
+.hamburger__dropdown-menu {
+  display: none;
+  width: 200px;
+  background-color: var(--white);
+  text-align: center;
+  top: 100%;
+  right: 0%;
+  position: absolute;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.hamburger__dropdown-menu a {
+  padding: 10px;
+  text-decoration: none;
+}
+
+#hamburger:checked ~ .hamburger__dropdown-menu {
+  display: grid;
+}
+
+/* Menu */
+
+li {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+li {
+  list-style: none;
+}
+
+a, ul {
+  color: var(--blue);
+}
+
+a:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+ul:hover {
+  color: var(--black);
+}
+
+/* Footer */
+
+
+
+
+/* Loading wheel animation */
+
+.loading-wheel {
+  margin: 60px auto;
+  width: 100px;
+  height: 100px;
+  border: 5px solid var(--blue);
+  border-top: 5px solid var(--black);
+  border-radius: 100%;
+  animation-name: turn;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes turn {
+  0% {
+    transform:rotate(0deg)
+  }
+  100% {
+    transform:rotate(360deg)
+  }
+}
+
+
+/* Media Querys */
+
+@media only screen and (max-width: 650px) {
+  header {
+    grid-template-columns: 80% 20%;
+  }
+  
+  .hamburger__icon-menu {
+    display: grid;
+  }
+  nav {
+    display: none;
+  }
+}

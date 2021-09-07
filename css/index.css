@@ -1,0 +1,109 @@
+/* Main Index */
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.index-photo {
+    background-image: url("../images/housebynight.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+}
+
+.welcome-message {
+    display: grid;
+}
+
+.welcome-message img {
+    width: 60%;
+}
+
+
+/* The Carousel */
+
+.carousel__container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 20fr 1fr;
+}
+
+.carousel-boxes {
+    border: 2px solid black;
+}
+
+.carousel__container button {
+    justify-self: center;
+    align-self: center;
+    border-radius: 100%;
+    border: none;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0px 0px 0px 20px;
+    z-index: 5;
+}
+
+.carousel__left-button {
+    margin-right: 10px;
+}
+
+.carousel__right-button {
+    margin-left: 10px;
+}
+
+.fas {
+    font-size: 30px;
+    color: var(--blue);
+}
+
+button .fas:hover {
+    color: var(--purple);
+}
+
+.index-carousel {
+    padding: 20px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    z-index: 10;
+}
+
+.index-carousel img {
+    max-width: 80%;
+    max-height: 500px;
+    margin: 0 auto;
+}
+
+.post-image {
+    height: 100px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position: contain;
+    margin: 0 auto
+
+
+}
+
+
+@media only screen and (max-width: 800px) {
+    .index-carousel {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+@media only screen and (max-width: 650px) {
+    .index-carousel {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .index-carousel {
+        grid-template-columns: 1fr;
+    }
+}

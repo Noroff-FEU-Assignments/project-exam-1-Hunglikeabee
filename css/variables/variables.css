@@ -1,0 +1,14 @@
+:root {
+  /* Colors */
+  --black: #000000;
+  --white: #ffffff;
+  --blue: #469ddb;
+  --purple: #9445f5;
+  --orange: #eb9b3f;
+
+  /* Fonts */
+  --defaultfont: "Open Sans", Helvetica, sans-serif;
+
+  /* Border radius defaults */
+  --defaultradius: 10px;
+}
