@@ -1,44 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width='device-width', initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/contact.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet"> 
-    <script src="https://kit.fontawesome.com/409a57b09b.js" crossorigin="anonymous"></script>
-    <title>Renovation Dad</title>
-</head>
-<body>
-    <header>
-        <div class="logo"></div>
-        <div class="hamburger__container">
-            <label for="hamburger" class="hamburger__icon-menu" tabindex="0"><i class="fas fa-bars"></i></label>
-            <input type="checkbox" id="hamburger">
-            <div class="hamburger__dropdown-menu">
-                <a href="index.html">HOME</a>
-                <a href="posts.html">BLOGS</a>
-                <a href="contact.html">CONTACT</a>
-                <a href="about.html">ABOUT</a>
-            </div>
-            <nav>
-                <li>
-                    <ul>HOME</ul>
-                    <ul>BLOGS</ul>
-                    <ul>CONTACT</ul>
-                    <ul>ABOUT</ul>
-                </li>
-            </nav>
-        </div>
-        <nav>
-            <li></li>
-        </nav>
-    </header>
-    <main>
+const fullName = document.querySelector("#contact__form-fullname");
+const email = document.querySelector("#contact__form-email");
+const subject = document.querySelector("#contact__form-subject");
+const textArea = document.querySelector("#contact__form-textarea");
+const form = document.querySelector("#contact__form");
+const button = document.querySelector(".contact__form-button");
+const message = document.querySelector(".contact__form-message");
 
-    </main>
-    <footer></footer>
-    <script src="js/contact.js"></script>
-</body>
-</html>
+const fullNameError = document.querySelector(".fullname-error");
+const emailError = document.querySelector(".email-error");
+const subjectError = document.querySelector(".subject-error");
+const textAreaError = document.querySelector(".textarea-error");
+
+fullName.addEventListener("keyup", () => {
+    checkButton();
+    checkName();
+});
+
+email.addEventListener("keyup", () => {
+    checkButton();
+    checkEmail();
+});
+
+subject.addEventListener("keyup", () => {
+    checkButton();
+    checkSubject();
+});
+
+textArea.addEventListener("keyup", () => {
+    checkButton();
+    checkTextArea();
+});
+
+function checkName() {
+    if(checkForm(fullName.value, 5)) {
+        fullNameError.style.display = "none";
+    }
+    else {
+        fullNameError.style.display = "block";
+    }
+};
+
+function checkEmail() {
+    if(validateEmail(email.value)) {
+        emailError.style.display = "none";
+    }
+    else {
+        emailError.style.display = "block";
+    }
+};
+
+function checkSubject() {
+    if(checkForm(subject.value, 15)) {
+        subjectError.style.display = "none";
+    }
+    else {
+        subjectError.style.display = "block";
+    }
+};
+
+function checkTextArea() {
+    if(checkForm(textArea.value, 25)) {
+        textAreaError.style.display = "none";
+    }
+    else {
+        textAreaError.style.display = "block";
+    }
+}
+
+function checkButton() {
+    if(checkForm(fullName.value, 5) && checkForm(subject.value, 15) && checkForm(textArea.value, 25) && validateEmail(email.value)) {
+        button.disabled = false;
+    }
+    else {
+        message.innerHTML = "";
+        button.disabled = true;
+    }
+
+};
+
+function checkForm(value, length) {
+    if(value.trim().length > length) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+
+function validateEmail(email) {
+    const regEx = /\S+@\S+\.\S+/;
+    const patternMatches = regEx.test(email);
+    return patternMatches;
+};
+
+form.addEventListener("submit", validateForm);

@@ -23,19 +23,15 @@ async function getMyBlog() {
             posts.innerHTML = "";
             for(let i = countPages; i < lengthPages; i++) {
                 
-                posts.innerHTML += `<div class="carousel-boxes postid-${resultPosts[i].id}"><div>${resultPosts[i].title.rendered}</div>`;
-                
+                posts.innerHTML += `<a href="post.html?id=${resultPosts[i].id}"><div class="carousel-boxes postid-${resultPosts[i].id}"><div>${resultPosts[i].title.rendered}</div>${resultPosts[i].excerpt.rendered}</a>`;
                 const postContainer = document.querySelector(`.postid-${resultPosts[i].id}`);
     
                 for(let j = 0; j < resultMedia.length; j++) {
                     if(resultMedia[j].post === resultPosts[i].id) {
                         postContainer.innerHTML += `<button class="post-image"><img class="id${resultMedia[j].post}" src="${resultMedia[j].media_details.sizes.large.source_url}"></button>`;
                     }
-                   
-                    
+
                 }
-    
-                posts.innerHTML += `${resultPosts[i].excerpt.rendered}`   
             }
         }
         
@@ -56,36 +52,18 @@ async function getMyBlog() {
                 
 
 
-
-        /* Previous and Next buttons for posts */
+        /* Load more button */
 
         const nextButton = document.querySelector(".posts__get-next");
-        const previousButton = document.querySelector(".posts__get-previous");
-
         nextButton.addEventListener("click", getNextPages);
-        previousButton.addEventListener("click", getPreviousPages);
-
+        
         function getNextPages() {
-            countPages = countPages + pageLengthVariable;
             lengthPages = lengthPages + pageLengthVariable;
             if (lengthPages > resultPosts.length) {
                 lengthPages = resultPosts.length;
-                countPages = resultPosts.length - pageLengthVariable;
             }
             makePostPage(countPages, lengthPages);
         }
-
-        function getPreviousPages() {
-            countPages = countPages - pageLengthVariable;
-            lengthPages = lengthPages - pageLengthVariable;
-            if (countPages < 0) {
-                lengthPages = pageLengthVariable;
-                countPages = 0;
-            }
-            makePostPage(countPages, lengthPages);
-        }
-
-
     
     }
     catch(error) {
