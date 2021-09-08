@@ -92,20 +92,20 @@ button .fas:hover {
 }
 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 850px) {
     .index-carousel {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 700px) {
     .index-carousel {
         grid-template-columns: 1fr 1fr;
     }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
     .index-carousel {
         grid-template-columns: 1fr;
     }

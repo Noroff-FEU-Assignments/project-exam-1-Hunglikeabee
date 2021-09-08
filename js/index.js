@@ -41,50 +41,55 @@ async function getMyBlog() {
         rightButtonCarousel.addEventListener("click", nextCarousel);
 
         function previousCarousel() {
-            console.log(widthNumber)
-            console.log(countPages)
             if (countPages > 0) {
                 countPages = countPages - 1;
             }
             else {
                 countPages = 0;
             }
-            if (lengthCarousel < widthNumber) {
+            if (lengthCarousel <= widthNumber) {
                 lengthCarousel = widthNumber;
             }
             else {
                 lengthCarousel = lengthCarousel - 1;
             }
-            console.log(lengthCarousel)
-            console.log(widthNumber)
+
             makeCarousel(countPages, lengthCarousel);
+            
         }
 
         function nextCarousel() {
 
             countPages = countPages + 1;
+
+            if (countPages >= resultPosts.length - widthNumber) {
+                countPages = resultPosts.length - widthNumber;
+            };
+
             lengthCarousel = countPages + widthNumber;
 
-            if(lengthCarousel > resultPosts.length) {
+            if(lengthCarousel >= resultPosts.length) {
                 lengthCarousel = resultPosts.length  
             }
+
             makeCarousel(countPages, lengthCarousel);
+            
         }
 
         var checkScreenWidth = screen.width;
 
         function checkWidthScreen(checkScreenWidth) {
-            if (checkScreenWidth >= 800) {
+            if (checkScreenWidth >= 850) {
                 widthNumber = 4;
                 countPages = 0;
                 makeCarousel(countPages, widthNumber);
             }
-            else if (checkScreenWidth > 650 && checkScreenWidth < 800) {
+            else if (checkScreenWidth > 700 && checkScreenWidth < 850) {
                 widthNumber = 3;
                 countPages = 0;
                 makeCarousel(countPages, widthNumber);
             }
-            else if (checkScreenWidth > 500 && checkScreenWidth <= 650) {
+            else if (checkScreenWidth > 550 && checkScreenWidth <= 700) {
                 widthNumber = 2;
                 countPages = 0;
                 makeCarousel(countPages, widthNumber);
@@ -98,7 +103,7 @@ async function getMyBlog() {
 
         checkWidthScreen(checkScreenWidth);
 
-console.log(window.matchMedia)
+
 
         var checkChangingScreen = window.matchMedia;
 
