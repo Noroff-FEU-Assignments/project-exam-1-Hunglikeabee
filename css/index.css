@@ -32,9 +32,14 @@ main {
 }
 
 .carousel-boxes {
-    border: 2px solid black;
     border-radius: var(--defaultradius);
     padding: 10px;
+    margin: 5px;
+    background-color: var(--offwhite);
+}
+
+.carousel__text {
+
 }
 
 .carousel__container button {
@@ -45,7 +50,6 @@ main {
     width: 40px;
     height: 40px;
     box-shadow: 0px 0px 0px 20px;
-    z-index: 5;
 }
 
 .carousel__left-button {
@@ -71,7 +75,11 @@ button .fas:hover {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    z-index: 10;
+}
+
+.index-carousel a {
+    text-decoration: none;
+    color: var(--black);
 }
 
 .index-carousel img {
@@ -85,10 +93,9 @@ button .fas:hover {
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-position: contain;
-    margin: 0 auto
-
-
+    background-size: cover;
+    margin: 0 auto;
+    border-radius: var(--defaultradius);
 }
 
 
