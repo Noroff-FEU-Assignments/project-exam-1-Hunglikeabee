@@ -27,7 +27,7 @@ async function getMyBlog() {
                                     <div class="posts postid-${resultPosts[i].id}">
                                     <div>${resultPosts[i].title.rendered}</div>
                                     ${resultPosts[i].excerpt.rendered}
-                                    <button class="post-image"><img class="id${resultPosts[i].id}" src="${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}"></button></div></a>
+                                    <button class="post-image"><img class="id${resultPosts[i].id}" src="${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url}"></button></div></a>
                                     <div class="devider-line"></div>`;
     
             }
@@ -38,21 +38,26 @@ async function getMyBlog() {
 
         /* Modal attempt */
 
-        const postImages = document.querySelectorAll(".post-image");
+        // const postImages = document.querySelectorAll(".post-image");
 
-        postImages.forEach(function(imagesDoes) {
-                imagesDoes.addEventListener("click", displayModal)
-        });
+        // postImages.forEach(function(imagesDoes) {
+        //         imagesDoes.addEventListener("click", displayModal)
+        // });
 
-        function displayModal() {
-            console.log("hey")
-        }
+
+        // const modal = document.querySelectorAll(".modal");
+
+        // modal.addEventListener("click", displayModal);
+
+        // function displayModal(event) {
+        //     console.log("hey")
+        // }
                 
 
 
         /* Load more button */
 
-        const nextButton = document.querySelector(".posts__get-next");
+        const nextButton = document.querySelector(".posts__button-more");
         nextButton.addEventListener("click", getNextPages);
         
         function getNextPages() {
