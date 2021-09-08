@@ -23,15 +23,13 @@ async function getMyBlog() {
             posts.innerHTML = "";
             for(let i = countPages; i < lengthPages; i++) {
                 
-                posts.innerHTML += `<a href="post.html?id=${resultPosts[i].id}"><div class="carousel-boxes postid-${resultPosts[i].id}"><div>${resultPosts[i].title.rendered}</div>${resultPosts[i].excerpt.rendered}</a>`;
-                const postContainer = document.querySelector(`.postid-${resultPosts[i].id}`);
+                posts.innerHTML += `<a href="post.html?id=${resultPosts[i].id}">
+                                    <div class="posts postid-${resultPosts[i].id}">
+                                    <div>${resultPosts[i].title.rendered}</div>
+                                    ${resultPosts[i].excerpt.rendered}
+                                    <button class="post-image"><img class="id${resultPosts[i].id}" src="${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}"></button></div></a>
+                                    <div class="devider-line"></div>`;
     
-                for(let j = 0; j < resultMedia.length; j++) {
-                    if(resultMedia[j].post === resultPosts[i].id) {
-                        postContainer.innerHTML += `<button class="post-image"><img class="id${resultMedia[j].post}" src="${resultMedia[j].media_details.sizes.large.source_url}"></button>`;
-                    }
-
-                }
             }
         }
         

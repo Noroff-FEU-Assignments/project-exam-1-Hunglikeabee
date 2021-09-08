@@ -16,15 +16,20 @@ async function getMyBlog() {
     
         // THE BIG CAROUSEL MAKE IT SPIN!!!
 
+        var countPages = 0;
+        var widthNumber;
+        var lengthCarousel;
+
+
         const carousel = document.querySelector(".index-carousel");
-        // const leftButtonCarousel = document.querySelector(".carousel__left-button");
-        // const rightButtonCarousel = document.querySelector(".carousel__right-button");
-        function makeCarousel(readLengthCarousel) {
+        const leftButtonCarousel = document.querySelector(".carousel__left-button");
+        const rightButtonCarousel = document.querySelector(".carousel__right-button");
+        function makeCarousel(countPages, readLengthCarousel) {
             carousel.innerHTML = "";
-            for(let i = 0; i < readLengthCarousel; i++) {
+            for(let i = countPages; i < readLengthCarousel; i++) {
                 
-                carousel.innerHTML += `<div class="carousel-boxes postid-${resultPosts[i].id}"><div>${resultPosts[i].title.rendered}</div>
-                                       <div class="post-image id${resultPosts[i].id}" style="background-image: url(${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url})"></div`;
+                carousel.innerHTML += `<a href="post.html?id=${resultPosts[i].id}"><div class="carousel-boxes postid-${resultPosts[i].id}"><div>${resultPosts[i].title.rendered}</div>
+                                       <div class="post-image id${resultPosts[i].id}" style="background-image: url(${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url})"></div</a>`;
                                        if(`${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}` === undefined) {
                                            continue;
                                        }
@@ -32,177 +37,120 @@ async function getMyBlog() {
         }
         
 
+        leftButtonCarousel.addEventListener("click", previousCarousel);
+        rightButtonCarousel.addEventListener("click", nextCarousel);
 
-
-   
-
- 
-
-        function setCarouselWidth(checkWidthBrowser) {
-            if(checkWidthBrowser > 800) {
-                var widthNumber = 4;
-                makeCarousel(widthNumber);
+        function previousCarousel() {
+            console.log(widthNumber)
+            console.log(countPages)
+            if (countPages > 0) {
+                countPages = countPages - 1;
             }
-            else if (checkWidthBrowser <= 800 && checkWidthBrowser > 650) {
-                var widthNumber = 3;
-                makeCarousel(widthNumber);
+            else {
+                countPages = 0;
             }
-            else if (checkWidthBrowser <= 650 && checkWidthBrowser > 500) {
-                var widthNumber = 2;
-                makeCarousel(widthNumber);
+            if (lengthCarousel < widthNumber) {
+                lengthCarousel = widthNumber;
             }
-            else if (checkWidthBrowser <= 500) {
-                var widthNumber = 1;
-                makeCarousel(widthNumber);
+            else {
+                lengthCarousel = lengthCarousel - 1;
+            }
+            console.log(lengthCarousel)
+            console.log(widthNumber)
+            makeCarousel(countPages, lengthCarousel);
+        }
+
+        function nextCarousel() {
+
+            countPages = countPages + 1;
+            lengthCarousel = countPages + widthNumber;
+
+            if(lengthCarousel > resultPosts.length) {
+                lengthCarousel = resultPosts.length  
+            }
+            makeCarousel(countPages, lengthCarousel);
+        }
+
+        var checkScreenWidth = screen.width;
+
+        function checkWidthScreen(checkScreenWidth) {
+            if (checkScreenWidth >= 800) {
+                widthNumber = 4;
+                countPages = 0;
+                makeCarousel(countPages, widthNumber);
+            }
+            else if (checkScreenWidth > 650 && checkScreenWidth < 800) {
+                widthNumber = 3;
+                countPages = 0;
+                makeCarousel(countPages, widthNumber);
+            }
+            else if (checkScreenWidth > 500 && checkScreenWidth <= 650) {
+                widthNumber = 2;
+                countPages = 0;
+                makeCarousel(countPages, widthNumber);
+            }
+            else {
+                widthNumber = 1;
+                countPages = 0;
+                makeCarousel(countPages, widthNumber);
             }
         }
 
+        checkWidthScreen(checkScreenWidth);
+
+console.log(window.matchMedia)
+
+        var checkChangingScreen = window.matchMedia;
+
+        checkChangingScreen.addListener(checkChangesScreen);
+
+        console.log(checkChangingScreen)
+
+        function checkChangesScreen(checkChangingScreen) {
+            console.log(checkChangingScreen)
+        }
      
-        console.log(document.body.offsetWidth);
-        console.log(window.matchMedia)
-        
-        var checkWidthBrowser = window.matchMedia;
-        setCarouselWidth(checkWidthBrowser);
-        // checkWidthBrowser.addListener(setCarouselWidth);
-        console.log(checkWidthBrowser)
-        
 
+        // function checkWidthCarousel(whatWidth) {
+        //     console.log(whatWidth)
 
-        // function changePostLinks(theCheck) {
-        //     if (theCheck.matches) {
-        //        makeCarousel(theCheck.length)
-                
+        //     if(whatWidth.media == "(min-width: 801px)") {
+        //         widthNumber = 4;
+        //         countPages = 0;
+        //         makeCarousel(countPages, widthNumber);
         //     }
-        //     console.log(theCheck);
-        // }
-
-
-
-        // var oneCarousel = window.matchMedia("(max-width: 500px)");
-        // var twoCarousel = window.matchMedia("(max-width: 650px)");
-        // var threeCarousel = window.matchMedia("(max-width: 800px)");
-        // var fourCarousel = window.matchMedia("(min-width: 801px)")
-
-        // changePostLinks(oneCarousel);
-        // changePostLinks(twoCarousel);
-        // changePostLinks(threeCarousel);
-        // changePostLinks(fourCarousel);
-        // oneCarousel.addListener(changePostLinks);
-        // twoCarousel.addListener(changePostLinks);
-        // threeCarousel.addListener(changePostLinks);
-        // fourCarousel.addListener(changePostLinks);
-
-
-        // function checkWidthScreen(widthScreen) {
-        //     if (widthScreen.media = "min-width: 801p") {
-        //         var widthNumber = 4;
-        //         makeCarousel(widthNumber);
+        //     else if(whatWidth.media == "(max-width: 800px)" && "(min-width: 651px)") {
+        //         widthNumber = 3;
+        //         countPages = 0;
+        //         makeCarousel(countPages, widthNumber);
         //     }
-        //     else if (widthScreen.media = "max-width: 800px") {
-        //         var widthNumber = 3;
-        //         makeCarousel(widthNumber);
+        //     else if(whatWidth.media == "(max-width: 650px)" && "(min-width: 501px)") {
+        //         widthNumber = 2;
+        //         countPages = 0;
+        //         makeCarousel(countPages, widthNumber);
         //     }
-        //     console.log(widthScreen)
-        // }
-    
+        //     else if(whatWidth.media == "(max-width: 500px)") {
+        //         widthNumber = 1;
+        //         countPages = 0;
+        //         makeCarousel(countPages, widthNumber);
+        //     }
+        //     console.log(widthNumber)
+        //     return widthNumber;
+        // };
+
 
         // var widthScreenMin = window.matchMedia("(min-width: 801px)");
-        // var widthScreen800 = window.matchMedia("(max-width: 800px)");
-        // var widthScreen650 = window.matchMedia("(max-width: 650px)");
+        // var widthScreen800 = window.matchMedia("(max-width: 800px)" && "(min-width: 651px)");
+        // var widthScreen650 = window.matchMedia("(max-width: 650px)" && "(min-width: 501px)");
         // var widthScreen500 = window.matchMedia("(max-width: 500px)");
-        // checkWidthScreen(widthScreen800);
-        // checkWidthScreen(widthScreen650);
-        // checkWidthScreen(widthScreen500);
-        // checkWidthScreen(widthScreenMin);
-        // widthScreen800.addListener(checkWidthScreen);
-        // widthScreen650.addListener(checkWidthScreen);
-        // widthScreen500.addListener(checkWidthScreen);
-        // widthScreenMin.addListener(checkWidthScreen);
-
-
-
-
-
-        // function checkIt(listenerCheck) {
-        //     if (window.matchMedia("(min-width: 801px)")) {
-        //         var widthNumber = 4;
-        //         makeCarousel(widthNumber);
-        //     }
-        //     else if (window.matchMedia("(max-width: 800px)")) {
-        //         var widthNumber = 3;
-        //         makeCarousel(widthNumber);
-        //     }
-        //     else if (window.matchMedia("(max-width: 650px)")) {
-        //         var widthNumber = 2;
-        //         makeCarousel(widthNumber);
-        //     }
-        //     else if (window.matchMedia("(max-width: 500px)")) {
-        //         var widthNumber = 1;
-        //         makeCarousel(widthNumber);
-        //     }
-
-        // }
-        // // checkIt();
-        // console.log("Hey " + window.matchMedia(""))
-        // var theCheck = window.matchMedia("");
-
-        // theCheck.addListener(checkIt);
-        // console.log(theCheck);
-
-        // function checkWidthMin(widthScreenMin) {
-        //     if(widthScreenMin.matches) {
-        //         var widthNumber = 4;
-        //         makeCarousel(widthNumber);
-        //     }  
-        // }
-        
-        // function checkWidth500(widthScreen500) {
-        //     if(widthScreen500.matches) {
-        //         var widthNumber = 1;
-        //         makeCarousel(widthNumber);
-        //     }
-        //     else {
-        //         var widthNumber = 2;
-        //         makeCarousel(widthNumber);
-        //     }
-        // }
-
-        // function checkWidth650(widthScreen650) {
-        //     if(widthScreen650.matches) {
-        //         var widthNumber = 2;
-        //         makeCarousel(widthNumber);
-        //     }
-        //     else {
-        //         var widthNumber = 3;
-        //         makeCarousel(widthNumber);
-        //     }
-        // }
-
-        // function checkWidth800(widthScreen800) {
-        //     if(widthScreen800.matches) {
-        //         var widthNumber = 3;
-        //         makeCarousel(widthNumber);
-        //     }
-        //     else {
-        //         var widthNumber = 4;
-        //         makeCarousel(widthNumber);
-        //     }
-        // }
-        
-        // var widthScreenMin = window.matchMedia("(min-width: 801px)");
-        // var widthScreen800 = window.matchMedia("(max-width: 800px)");
-        // var widthScreen650 = window.matchMedia("(max-width: 650px)");
-        // var widthScreen500 = window.matchMedia("(max-width: 500px)");
-        // checkWidthMin(widthScreenMin);
-        // checkWidth800(widthScreen800);
-        // checkWidth650(widthScreen650);
-        // checkWidth500(widthScreen500);
-        // widthScreen800.addListener(checkWidth800);
-        // widthScreen650.addListener(checkWidth650);
-        // widthScreen500.addListener(checkWidth500);
-        // widthScreenMin.addListener(checkWidthMin);
-      
-
+        // checkWidthCarousel(widthScreenMin);
+        // checkWidthCarousel(widthScreen800);
+        // checkWidthCarousel(widthScreen650);
+        // checkWidthCarousel(widthScreen500);
+        // widthScreen800.addListener(checkWidthCarousel);
+        // widthScreen650.addListener(checkWidthCarousel);
+        // widthScreen500.addListener(checkWidthCarousel);
+        // widthScreenMin.addListener(checkWidthCarousel);
 
 
         console.log(resultPosts[0]._embedded[`wp:term`][1][0].name)

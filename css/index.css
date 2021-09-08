@@ -33,6 +33,8 @@ main {
 
 .carousel-boxes {
     border: 2px solid black;
+    border-radius: var(--defaultradius);
+    padding: 10px;
 }
 
 .carousel__container button {

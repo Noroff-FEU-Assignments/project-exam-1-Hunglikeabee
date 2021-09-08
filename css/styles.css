@@ -1,5 +1,11 @@
 @import "variables/variables.css";
 
+/* FONT */
+
+* {
+  font-family: var(--defaultfont);
+}
+
 /* HTML */
 html {
   background: var(--black);
@@ -91,15 +97,6 @@ li a {
   font-size: 24px;
   padding: 30px;
 
-}
-
-a:hover {
-  background-color: var(--black);
-  color: var(--white);
-}
-
-ul:hover {
-  color: var(--black);
 }
 
 /* Footer */
