@@ -16,9 +16,7 @@ async function getMyBlog() {
     
         // THE BIG CAROUSEL MAKE IT SPIN!!!
 
-        var countPages = 0;
-        var widthNumber;
-        var lengthCarousel;
+
 
 
         const carousel = document.querySelector(".index-carousel");
@@ -102,14 +100,15 @@ async function getMyBlog() {
 
         checkWidthScreen(checkScreenWidth);
 
+        var countPages = 0;
+        var widthNumber;
+        var lengthCarousel = widthNumber;
 
-
-        var checkChangingScreen = window.innerWidth;
-
-        checkChangingScreen.addEventListener("change", checkChangesScreen);
+        window.addEventListener("resize", checkChangesScreen);
 
         function checkChangesScreen() {
-            checkWidthScreen(checkChangingScreen)
+            widthOutput = window.innerWidth;
+            checkWidthScreen(widthOutput)
         };
      
 
