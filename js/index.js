@@ -76,8 +76,7 @@ async function getMyBlog() {
             
         }
 
-        var checkScreenWidth = screen.width;
-
+        var checkScreenWidth = window.innerWidth;
         function checkWidthScreen(checkScreenWidth) {
             if (checkScreenWidth >= 850) {
                 widthNumber = 4;
@@ -105,15 +104,13 @@ async function getMyBlog() {
 
 
 
-        var checkChangingScreen = window.matchMedia;
+        var checkChangingScreen = window.innerWidth;
 
-        checkChangingScreen.addListener(checkChangesScreen);
+        checkChangingScreen.addEventListener("change", checkChangesScreen);
 
-        console.log(checkChangingScreen)
-
-        function checkChangesScreen(checkChangingScreen) {
-            console.log(checkChangingScreen)
-        }
+        function checkChangesScreen() {
+            checkWidthScreen(checkChangingScreen)
+        };
      
 
         // function checkWidthCarousel(whatWidth) {
