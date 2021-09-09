@@ -119,8 +119,6 @@ async function getMyBlog() {
             widthOutput = window.innerWidth;
             checkWidthScreen(widthOutput)
         };
-
-        console.log(resultPosts[0]._embedded[`wp:term`][1][0].name)
     
     }
     catch(error) {

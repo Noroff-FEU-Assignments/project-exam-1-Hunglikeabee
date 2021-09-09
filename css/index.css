@@ -60,11 +60,6 @@ main {
     margin-left: 10px;
 }
 
-.fas {
-    font-size: 30px;
-    color: var(--blue);
-}
-
 button .fas:hover {
     color: var(--purple);
 }

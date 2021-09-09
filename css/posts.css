@@ -10,7 +10,11 @@ img {
 
 a {
     text-decoration: none;
-    color: var(--black)
+    color: var(--black);
+}
+
+a:hover {
+    color: var(--black);
 }
 
 .posts__container {
@@ -20,9 +24,12 @@ a {
     font-size: 14px;
 }
 
+
 .posts {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
     margin: 50px auto;
-    border: 1px solid black;
+    background-color: var(--offwhite);
     padding: 20px;
     border-radius: var(--defaultradius)
 }
@@ -31,9 +38,12 @@ a {
 .title {
     font-size: 24px;
     font-weight: bold;
+    padding: 10px;
 }
 
-
+.time-dif {
+    padding: 20px;
+}
 
 
 .devider-line {
@@ -68,6 +78,6 @@ a {
   }
   
   #sortby {
-    border-radius: var(--borderradius1);
+    border-radius: var(--defaultradius);
     border-style: none;
   }
