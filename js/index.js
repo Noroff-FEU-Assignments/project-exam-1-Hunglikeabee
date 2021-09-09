@@ -32,7 +32,7 @@ async function getMyBlog() {
 
                 carousel.innerHTML += `<a href="post.html?id=${resultPosts[i].id}"><div class="carousel-boxes postid-${resultPosts[i].id}">
                                             <div class="carousel__text">${resultPosts[i].title.rendered}</div>
-                                            <div class="post-image id${resultPosts[i].id}" style="background-image: url(${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url})"></div>
+                                            <div class="post-image id${resultPosts[i].id}" style="background-image: url(${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url})"></div>
                                             <div>Time used: ${resultDif} of 5</div>
                                             <div>Difficulty: ${resultTime} of 5</div>
                                          </div>
