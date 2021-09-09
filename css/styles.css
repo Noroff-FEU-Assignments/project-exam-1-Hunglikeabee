@@ -57,7 +57,7 @@ header {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  font-size: 30px;
+  font-size: px;
 }
 
 #hamburger {
@@ -66,12 +66,13 @@ header {
 
 .hamburger__dropdown-menu {
   display: none;
-  width: 200px;
-  background-color: var(--white);
+  margin: 0px 8px;
+  width: 100vw;
+  background-color: aqua;
   text-align: center;
-  top: 100%;
-  right: 0%;
-  position: absolute;
+  top: 100%;  
+  left: 0%;
+  position:absolute;
   border-radius: 0px 0px 10px 10px;
 }
 
@@ -88,6 +89,7 @@ header {
 
 nav {
   margin-top: 50px;
+  font-weight: bold;
 }
 
 ul {
@@ -112,9 +114,10 @@ li a {
 
 
 
-/* Loading wheel animation */
+/* Loading wheel*/
 
 .loading-wheel {
+  margin: 0 auto;
   width: 100px;
   height: 100px;
   border: 5px solid var(--blue);

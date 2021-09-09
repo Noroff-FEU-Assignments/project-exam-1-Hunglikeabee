@@ -73,7 +73,6 @@ function checkButton() {
     }
     else {
         message.innerHTML = "";
-        button.disabled = true;
     }
 
 };
@@ -94,3 +93,12 @@ function validateEmail(email) {
 };
 
 form.addEventListener("submit", validateForm);
+
+function validateForm(event) {
+    event.preventDefault();
+    message.style.display = "grid";
+    message.innerHTML = "Message sendt!"
+    
+    form.reset();
+    button.disabled = "true";
+}

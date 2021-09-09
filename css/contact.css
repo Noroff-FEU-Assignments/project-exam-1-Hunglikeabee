@@ -4,6 +4,7 @@
 
 .contact__form {
     display: grid;
+    width: 400px;
     max-width: 80%;
     margin: 40px auto;
     padding: 40px 0px;
@@ -20,6 +21,22 @@
 
 input, textarea {
     border: 1px solid black;
+    border-radius: var(--defaultradius);
+}
+
+textarea {
+    resize: none;
+}
+
+.contact__form-message {
+    display: none;
+    width: 80%;
+    text-align: center;
+    font-weight: bold;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 24px;
+    background-color: var(--blue);
     border-radius: var(--defaultradius);
 }
 

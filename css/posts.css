@@ -2,8 +2,10 @@ main {
     padding-bottom: 20px;
 }
 
-mg {
+img {
     width: 200px;
+    height: 150px;
+    border-radius: var(--defaultradius);
 }
 
 a {
@@ -21,9 +23,18 @@ a {
 .posts {
     margin: 50px auto;
     border: 1px solid black;
-    padding: 40px;
+    padding: 20px;
     border-radius: var(--defaultradius)
 }
+
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+
 
 .devider-line {
     width: 100%;
@@ -47,3 +58,16 @@ a {
     cursor: pointer;
     background-color: var(--orange);
 }
+
+/* Sort button */
+.selection-button {
+    display: block;
+    max-width: 800px;
+    margin: 20px auto;
+    padding-left: 20px;
+  }
+  
+  #sortby {
+    border-radius: var(--borderradius1);
+    border-style: none;
+  }

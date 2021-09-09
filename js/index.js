@@ -18,16 +18,25 @@ async function getMyBlog() {
 
 
 
-
         const carousel = document.querySelector(".index-carousel");
         const leftButtonCarousel = document.querySelector(".carousel__left-button");
         const rightButtonCarousel = document.querySelector(".carousel__right-button");
         function makeCarousel(countPages, readLengthCarousel) {
             carousel.innerHTML = "";
             for(let i = countPages; i < readLengthCarousel; i++) {
-                
-                carousel.innerHTML += `<a href="post.html?id=${resultPosts[i].id}"><div class="carousel-boxes postid-${resultPosts[i].id}"><div class="carousel__text">${resultPosts[i].title.rendered}</div>
-                                       <div class="post-image id${resultPosts[i].id}" style="background-image: url(${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url})"></div</a>`;
+                let valueDif = resultPosts[i]._embedded["wp:term"][1][0].name;
+                let resultDif = valueDif[3]; 
+
+                let valueTime = resultPosts[i]._embedded["wp:term"][1][1].name;
+                let resultTime = valueTime[4];
+
+                carousel.innerHTML += `<a href="post.html?id=${resultPosts[i].id}"><div class="carousel-boxes postid-${resultPosts[i].id}">
+                                            <div class="carousel__text">${resultPosts[i].title.rendered}</div>
+                                            <div class="post-image id${resultPosts[i].id}" style="background-image: url(${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url})"></div>
+                                            <div>Time used: ${resultDif} of 5</div>
+                                            <div>Difficulty: ${resultTime} of 5</div>
+                                         </div>
+                                       </a>`;
                                        if(`${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}` === undefined) {
                                            continue;
                                        }
@@ -110,49 +119,6 @@ async function getMyBlog() {
             widthOutput = window.innerWidth;
             checkWidthScreen(widthOutput)
         };
-     
-
-        // function checkWidthCarousel(whatWidth) {
-        //     console.log(whatWidth)
-
-        //     if(whatWidth.media == "(min-width: 801px)") {
-        //         widthNumber = 4;
-        //         countPages = 0;
-        //         makeCarousel(countPages, widthNumber);
-        //     }
-        //     else if(whatWidth.media == "(max-width: 800px)" && "(min-width: 651px)") {
-        //         widthNumber = 3;
-        //         countPages = 0;
-        //         makeCarousel(countPages, widthNumber);
-        //     }
-        //     else if(whatWidth.media == "(max-width: 650px)" && "(min-width: 501px)") {
-        //         widthNumber = 2;
-        //         countPages = 0;
-        //         makeCarousel(countPages, widthNumber);
-        //     }
-        //     else if(whatWidth.media == "(max-width: 500px)") {
-        //         widthNumber = 1;
-        //         countPages = 0;
-        //         makeCarousel(countPages, widthNumber);
-        //     }
-        //     console.log(widthNumber)
-        //     return widthNumber;
-        // };
-
-
-        // var widthScreenMin = window.matchMedia("(min-width: 801px)");
-        // var widthScreen800 = window.matchMedia("(max-width: 800px)" && "(min-width: 651px)");
-        // var widthScreen650 = window.matchMedia("(max-width: 650px)" && "(min-width: 501px)");
-        // var widthScreen500 = window.matchMedia("(max-width: 500px)");
-        // checkWidthCarousel(widthScreenMin);
-        // checkWidthCarousel(widthScreen800);
-        // checkWidthCarousel(widthScreen650);
-        // checkWidthCarousel(widthScreen500);
-        // widthScreen800.addListener(checkWidthCarousel);
-        // widthScreen650.addListener(checkWidthCarousel);
-        // widthScreen500.addListener(checkWidthCarousel);
-        // widthScreenMin.addListener(checkWidthCarousel);
-
 
         console.log(resultPosts[0]._embedded[`wp:term`][1][0].name)
     

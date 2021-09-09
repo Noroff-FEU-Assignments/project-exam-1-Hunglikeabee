@@ -26,18 +26,50 @@ async function getMyBlog() {
             if (resultPosts[i].id == id) {
                 document.title = resultPosts[i].title.rendered;
 
-                singlePost.innerHTML = `<div class="post postid-${resultPosts[i].id}"><div>${resultPosts[i].title.rendered}</div>${resultPosts[i].excerpt.rendered}`; 
+                singlePost.innerHTML = `<div class="post postid-${resultPosts[i].id}"><div class="title">${resultPosts[i].title.rendered}</div>${resultPosts[i].excerpt.rendered}`; 
 
                 const postContainer = document.querySelector(`.postid-${resultPosts[i].id}`);
     
                 for(let j = 0; j < resultMedia.length; j++) {
                     if(resultMedia[j].post === resultPosts[i].id) {
-                        postContainer.innerHTML += `<img class="id${resultMedia[j].post}" src="${resultMedia[j].media_details.sizes.large.source_url}">
-                                                    ${resultMedia[j].caption.rendered}`;
+                        postContainer.innerHTML += `<img class="id${resultMedia[j].post} modal" src="${resultMedia[j].media_details.sizes.large.source_url}">
+                                                    <div class="caption">${resultMedia[j].caption.rendered}</div>`;
                     }
             }
         }
         }
+
+                /* Modal attempt */
+
+
+                const modalContainer = document.querySelector(".modal__container");
+                const postImages = document.querySelectorAll(".modal");
+                const modalImage = document.querySelector(".modal-image");
+                const modalClose = document.querySelector(".modal-close");
+
+                postImages.forEach(function(imagesDoes) {
+                        imagesDoes.addEventListener("click", displayModal)
+                });
+        
+                function displayModal(event) {
+                    modalContainer.style.display = "flex";
+                    modalImage.innerHTML = `<img class="modal-image" src="${event.target.src}">
+                    `
+                }
+
+                modalClose.addEventListener("click", () => {
+                    modalContainer.style.display = "none";
+                    modalImage.innerHTML = "";
+                });
+
+                window.addEventListener("click", closeModalWindow);
+
+                function closeModalWindow(classClick) {
+                    if(classClick.target === modalContainer) {
+                        modalContainer.style.display = "none";
+                    }
+                }
+
     }
     catch(error) {
         console.log("An error occurred" + error)

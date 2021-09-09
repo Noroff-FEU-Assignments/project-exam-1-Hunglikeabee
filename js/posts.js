@@ -22,37 +22,60 @@ async function getMyBlog() {
         function makePostPage(countPages, lengthPages) {
             posts.innerHTML = "";
             for(let i = countPages; i < lengthPages; i++) {
+                let valueDif = resultPosts[i]._embedded["wp:term"][1][0].name;
+                let resultDif = valueDif[3]; 
+
+                let valueTime = resultPosts[i]._embedded["wp:term"][1][1].name;
+                let resultTime = valueTime[4];
                 
                 posts.innerHTML += `<a href="post.html?id=${resultPosts[i].id}">
                                     <div class="posts postid-${resultPosts[i].id}">
-                                    <div>${resultPosts[i].title.rendered}</div>
+                                    <div class="title">${resultPosts[i].title.rendered}</div>
                                     ${resultPosts[i].excerpt.rendered}
-                                    <button class="post-image"><img class="id${resultPosts[i].id}" src="${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url}"></button></div></a>
+                                    <img class="id${resultPosts[i].id} post-image" src="${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url}"><div>Time used: ${resultTime} of 5</div>
+                                    <div>Difficulty: ${resultDif} of 5</div></div></a>
                                     <div class="devider-line"></div>`;
     
             }
         }
         
         makePostPage(countPages, lengthPages);
-
-
-        /* Modal attempt */
-
-        // const postImages = document.querySelectorAll(".post-image");
-
-        // postImages.forEach(function(imagesDoes) {
-        //         imagesDoes.addEventListener("click", displayModal)
-        // });
-
-
-        // const modal = document.querySelectorAll(".modal");
-
-        // modal.addEventListener("click", displayModal);
-
-        // function displayModal(event) {
-        //     console.log("hey")
-        // }
                 
+
+
+        //Sorting things out
+
+        const sortBy = document.querySelector("#sortby")
+        sortBy.addEventListener("click", selectSort)
+
+        function selectSort() {
+            if (sortBy.value == "difficulty") {
+                function fixOrder( a, b ) {
+                    if (a._embedded["wp:term"][1][0].name < b._embedded["wp:term"][1][0].name){
+                    return -1;
+                    }
+                    if (a._embedded["wp:term"][1][0].name > b._embedded["wp:term"][1][0].name){
+                    return 1;
+                    }
+                    return 0;
+                }
+                resultPosts.sort(fixOrder);
+                makePostPage(countPages, lengthPages);
+            }
+            if (sortBy.value == "time") {
+                function fixOrder( a, b ) {
+                    if (a._embedded["wp:term"][1][1].name < b._embedded["wp:term"][1][1].name){
+                    return -1;
+                    }
+                    if (a._embedded["wp:term"][1][1].name > b._embedded["wp:term"][1][1].name){
+                    return 1;
+                    }
+                    return 0;
+                }
+                resultPosts.sort(fixOrder);
+                makePostPage(countPages, lengthPages);
+            }
+        }
 
 
         /* Load more button */
