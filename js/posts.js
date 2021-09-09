@@ -31,8 +31,7 @@ async function getMyBlog() {
                 posts.innerHTML += `<a href="post.html?id=${resultPosts[i].id}">
                                     <div class="posts postid-${resultPosts[i].id}">
                                     <div class="title">${resultPosts[i].title.rendered}</div>
-                                    <img class="id${resultPosts[i].id} post-image" src="${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}">
-                                    
+                                    <div class="posts-image" style="background-image: url(${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url})"></div>
                                     <div class="time-dif">
                                         <div>Time used: ${resultTime} of 5</div>
                                         <div>Difficulty: ${resultDif} of 5</div>

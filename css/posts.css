@@ -4,7 +4,8 @@ main {
 
 img {
     width: 200px;
-    height: 150px;
+    height: auto;
+    max-height: 200px;
     border-radius: var(--defaultradius);
 }
 
@@ -32,6 +33,12 @@ a:hover {
     background-color: var(--offwhite);
     padding: 20px;
     border-radius: var(--defaultradius)
+}
+
+.posts-image {
+    height: 150px;
+    background-position: center;
+    background-size: cover;
 }
 
 
@@ -80,4 +87,10 @@ a:hover {
   #sortby {
     border-radius: var(--defaultradius);
     border-style: none;
+  }
+
+  @media only screen and (max-width: 600px) {
+      .posts {
+          grid-template-columns: 1fr;
+      }
   }
