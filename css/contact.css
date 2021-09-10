@@ -1,6 +1,7 @@
 .fullname-error, .email-error, .subject-error, .textarea-error {
     display: none;
     color: var(--red);
+    margin: 5px 0px;
 }
 
 main {
@@ -25,7 +26,7 @@ main {
   }
 
 input, textarea {
-    border: 1px solid black;
+    border: none;
     border-radius: var(--defaultradius);
 }
 
