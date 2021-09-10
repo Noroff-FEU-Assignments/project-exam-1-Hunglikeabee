@@ -48,11 +48,26 @@ img {
     }
 }
 
+.modal-image {
+    display: inline-block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: var(--defaultradius);
+}
+
 .modal-close {
     position: absolute;
     top: 20px;
     right: 40px;
     cursor: pointer;
     font-size: 50px;
-    color: white;
+    color: var(--blue);
 }

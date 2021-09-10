@@ -22,6 +22,20 @@ async function getMyBlog() {
         console.log(resultMedia);
         
 
+        /* Fix order or images from wordpress based on title number */
+
+        function fixOrder( a, b ) {
+            if (a.title.rendered < b.title.rendered){
+            return -1;
+            }
+            if (a.title.rendered > b.title.rendered){
+            return 1;
+            }
+            return 0;
+        }
+        resultMedia.sort(fixOrder);
+            
+
         for (let i = 0; i < resultPosts.length; i++) {
             if (resultPosts[i].id == id) {
                 document.title = resultPosts[i].title.rendered;
@@ -53,7 +67,7 @@ async function getMyBlog() {
         
                 function displayModal(event) {
                     modalContainer.style.display = "flex";
-                    modalImage.innerHTML = `<img class="modal-image" src="${event.target.src}">
+                    modalImage.innerHTML = `<div class="modal-image" style="background-image: url(${event.target.src})"></div>
                     `
                 }
 
