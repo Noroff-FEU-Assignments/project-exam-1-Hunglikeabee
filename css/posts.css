@@ -80,7 +80,7 @@ a:hover {
 /* Sort button */
 .selection-button {
     display: block;
-    max-width: 800px;
+    max-width: 600px;
     margin: 20px auto;
     padding-left: 20px;
   }

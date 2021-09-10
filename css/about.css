@@ -5,7 +5,8 @@
 
 .about-me h1 {
     text-align: center;
-    padding: 30px;
+    margin: 0px;
+    padding-top: 40px;
 }
 
 .about-me p {
