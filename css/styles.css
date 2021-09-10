@@ -28,14 +28,7 @@ body {
   color: var(--blue);
 }
 
-nav a:hover {
-  color: var(--orange);
-}
 
-.hamburger__dropdown-menu a:hover {
-  background-color: orange;
-  border-radius: var(--defaultradius)
-}
 
 /* Header */
 
@@ -90,6 +83,11 @@ header {
   color: var(--black);
 }
 
+.hamburger__dropdown-menu a:hover {
+  background-color: orange;
+  border-radius: var(--defaultradius)
+}
+
 #hamburger:checked ~ .hamburger__dropdown-menu {
   display: grid;
 }
@@ -100,6 +98,12 @@ nav {
   margin-top: 50px;
   font-weight: bold;
 }
+
+nav a:hover {
+  color: var(--orange);
+}
+
+
 
 ul {
   display: grid;
@@ -113,10 +117,12 @@ li {
 li a {
   color: var(--blue);
   text-decoration: none;
-  font-size: 24px;
+  font-size: 20px;
   padding: 30px;
 
 }
+
+
 
 /* Footer */
 

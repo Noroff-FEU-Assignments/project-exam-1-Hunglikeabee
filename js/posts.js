@@ -2,6 +2,7 @@ const CORSFIX = `https://noroffcors.herokuapp.com/`;
 const postsAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/posts?_embed&per_page=100`;
 const mediaAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/media?per_page=100`;
 
+
 async function getMyBlog() {
     try {
         const fetchPosts = await fetch(CORSFIX + postsAPI);

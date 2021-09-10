@@ -1,22 +1,30 @@
 const CORSFIX = `https://noroffcors.herokuapp.com/`;
 const postsAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/posts?_embed&per_page=100`;
 const mediaAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/media?per_page=100`;
+const pagesAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/pages?_embed&per_page=100`;
 
 async function getMyBlog() {
     try {
         const fetchPosts = await fetch(CORSFIX + postsAPI);
         const fetchMedia = await fetch(CORSFIX + mediaAPI);
+        const fetchPages = await fetch(CORSFIX + pagesAPI);
         const resultPosts = await fetchPosts.json();
         const resultMedia = await fetchMedia.json();
+        const resultPages = await fetchPages.json();
         console.log(resultPosts);
         console.log(resultMedia);
+        console.log(resultPages)
 
-        // const getSomethingOnPage = document.querySelector(".welcome-message");
+        const makeFeelWelcome = document.querySelector(".welcome-message");
+
+        makeFeelWelcome.innerHTML = `<h1 class="welcome-title">${resultPages[0].title.rendered}</h1>
+                                        <div class="welcome-paragraph">${resultPages[0].content.rendered}</div>`
 
     
+
+
+
         // THE BIG CAROUSEL MAKE IT SPIN!!!
-
-
 
         const carousel = document.querySelector(".index-carousel");
         const leftButtonCarousel = document.querySelector(".carousel__left-button");

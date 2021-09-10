@@ -14,13 +14,17 @@ main {
 
 }
 
-.welcome-message {
-    display: grid;
+.index-top {
+    background-color: var(--offwhite);
 }
 
-.welcome-message img {
-    width: 60%;
+.welcome-message {
+    display: grid;
+    margin: 60px auto;
+    max-width: 600px;
 }
+
+
 
 
 /* The Carousel */

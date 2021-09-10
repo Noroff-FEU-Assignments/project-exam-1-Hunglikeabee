@@ -1,5 +1,10 @@
 .fullname-error, .email-error, .subject-error, .textarea-error {
     display: none;
+    color: var(--red);
+}
+
+main {
+    background-color: var(--offwhite);
 }
 
 .contact__form {
