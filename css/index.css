@@ -22,6 +22,7 @@ main {
     display: grid;
     margin: 60px auto;
     max-width: 600px;
+    padding: 0px 20px;
 }
 
 
@@ -33,6 +34,8 @@ main {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 20fr 1fr;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .carousel-boxes {
@@ -65,7 +68,7 @@ main {
 }
 
 button .fas:hover {
-    color: var(--orange);
+    color: var(--black);
 }
 
 .index-carousel {

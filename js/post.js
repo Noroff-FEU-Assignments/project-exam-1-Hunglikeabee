@@ -40,13 +40,13 @@ async function getMyBlog() {
             if (resultPosts[i].id == id) {
                 document.title = resultPosts[i].title.rendered;
 
-                singlePost.innerHTML = `<div class="post postid-${resultPosts[i].id}"><div class="title">${resultPosts[i].title.rendered}</div>${resultPosts[i].excerpt.rendered}`; 
+                singlePost.innerHTML = `<div class="post postid-${resultPosts[i].id}"><div class="title"><p>${resultPosts[i].title.rendered}</p</div></div><div class="content-text">${resultPosts[i].excerpt.rendered}</div>`; 
 
                 const postContainer = document.querySelector(`.postid-${resultPosts[i].id}`);
     
                 for(let j = 0; j < resultMedia.length; j++) {
                     if(resultMedia[j].post === resultPosts[i].id) {
-                        postContainer.innerHTML += `<img class="id${resultMedia[j].post} modal" src="${resultMedia[j].media_details.sizes.large.source_url}">
+                        postContainer.innerHTML += `<div class="id${resultMedia[j].post} modal" style="background-image: url(${resultMedia[j].media_details.sizes.large.source_url})"></div>
                                                     <div class="caption">${resultMedia[j].caption.rendered}</div>`;
                     }
             }
@@ -58,7 +58,7 @@ async function getMyBlog() {
 
                 const modalContainer = document.querySelector(".modal__container");
                 const postImages = document.querySelectorAll(".modal");
-                const modalImage = document.querySelector(".modal-image");
+                const modalImage = document.querySelector(".modal__image-container");
                 const modalClose = document.querySelector(".modal-close");
 
                 postImages.forEach(function(imagesDoes) {
@@ -66,8 +66,9 @@ async function getMyBlog() {
                 });
         
                 function displayModal(event) {
+                    console.log(event.target)
                     modalContainer.style.display = "flex";
-                    modalImage.innerHTML = `<div class="modal-image" style="background-image: url(${event.target.src})"></div>
+                    modalImage.innerHTML = `<div class="modal-image" style="${event.target.attributes.style.textContent}"></div>
                     `
                 }
 
