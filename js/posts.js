@@ -2,7 +2,6 @@ const CORSFIX = `https://noroffcors.herokuapp.com/`;
 const postsAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/posts?_embed&per_page=100`;
 const mediaAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/media?per_page=100`;
 
-
 async function getMyBlog() {
     try {
         const fetchPosts = await fetch(CORSFIX + postsAPI);
@@ -28,6 +27,9 @@ async function getMyBlog() {
 
                 let valueTime = resultPosts[i]._embedded["wp:term"][1][1].name;
                 let resultTime = valueTime[4];
+                for(r = 0; r > resultTime.length; r++) {
+                    StaticRange
+                }
                 
                 posts.innerHTML += `<a href="post.html?id=${resultPosts[i].id}">
                                     <div class="posts postid-${resultPosts[i].id}">
@@ -37,7 +39,7 @@ async function getMyBlog() {
                                         <div>Time used: ${resultTime} of 5</div>
                                         <div>Difficulty: ${resultDif} of 5</div>
                                     </div>${resultPosts[i].excerpt.rendered}</div></a>
-                                    <div class="devider-line"></div>`;
+                                    <div class="divider-line"></div>`;
     
             }
         }
@@ -53,7 +55,7 @@ async function getMyBlog() {
 
         function selectSort() {
             if (sortBy.value == "difficulty") {
-                function fixOrder( a, b ) {
+                function fixOrder(a, b) {
                     if (a._embedded["wp:term"][1][0].name < b._embedded["wp:term"][1][0].name){
                     return -1;
                     }
@@ -66,7 +68,7 @@ async function getMyBlog() {
                 makePostPage(countPages, lengthPages);
             }
             if (sortBy.value == "time") {
-                function fixOrder( a, b ) {
+                function fixOrder(a, b) {
                     if (a._embedded["wp:term"][1][1].name < b._embedded["wp:term"][1][1].name){
                     return -1;
                     }

@@ -2,6 +2,7 @@ const fullName = document.querySelector("#contact__form-fullname");
 const email = document.querySelector("#contact__form-email");
 const subject = document.querySelector("#contact__form-subject");
 const textArea = document.querySelector("#contact__form-textarea");
+
 const form = document.querySelector("#contact__form");
 const button = document.querySelector(".contact__form-button");
 const message = document.querySelector(".contact__form-message");
@@ -92,8 +93,6 @@ function validateEmail(email) {
     return patternMatches;
 };
 
-form.addEventListener("submit", validateForm);
-
 function validateForm(event) {
     event.preventDefault();
     message.style.display = "grid";
@@ -101,4 +100,30 @@ function validateForm(event) {
     
     form.reset();
     button.disabled = "true";
+}
+form.addEventListener("click", sendTheForm);
+form.addEventListener("submit", validateForm);
+
+const CORSFIX = `https://noroffcors.herokuapp.com/`;
+const contactAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/comments`;
+
+async function sendTheForm() {
+    try {
+        const getContact = await fetch(CORSFIX + contactAPI);
+        const resultContact = await getContact.json();
+        console.log(resultContact);
+
+        const nameForm = fullName.trim().text;
+        const emailForm = email.trim().text;
+        const subjectForm = subject.trim().text;
+        const textForm = textArea.trim().text;
+
+        const contactForm = {nameForm, emailForm, subjectForm, textForm}
+
+        console.log(contactForm)
+
+    }
+    catch(error) {
+        console.log("An error occurred " + error)
+    }
 }

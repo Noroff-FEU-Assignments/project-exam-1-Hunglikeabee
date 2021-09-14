@@ -24,7 +24,7 @@ async function getMyBlog() {
 
         /* Fix order or images from wordpress based on title number */
 
-        function fixOrder( a, b ) {
+        function fixOrder(a, b) {
             if (a.title.rendered < b.title.rendered){
             return -1;
             }
