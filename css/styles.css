@@ -132,7 +132,8 @@ li a {
 .search-bar input {
   border: 1px solid var(--black);
   border-radius: var(--defaultradius);
-  height: 30px;
+  height: 20px;
+  padding: 5px;
 }
 
 .search-button {
