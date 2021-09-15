@@ -66,7 +66,7 @@ function checkTextArea() {
     else {
         textAreaError.style.display = "block";
     }
-}
+};
 
 function checkButton() {
     if(checkForm(fullName.value, 5) && checkForm(subject.value, 15) && checkForm(textArea.value, 25) && validateEmail(email.value)) {
@@ -97,28 +97,38 @@ function validateForm(event) {
     event.preventDefault();
     message.style.display = "grid";
     message.innerHTML = "Message sendt!"
+
+    const nameForm = fullName.trim().text;
+    const emailForm = email.trim().text;
+    const subjectForm = subject.trim().text;
+    const textForm = textArea.trim().text;
+
+    sendTheForm(nameForm, emailForm, subjectForm, textForm);
     
     form.reset();
     button.disabled = "true";
-}
+};
+
 form.addEventListener("click", sendTheForm);
 form.addEventListener("submit", validateForm);
 
 const CORSFIX = `https://noroffcors.herokuapp.com/`;
-const contactAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/comments`;
+const contactAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/contact-form-7/v1/contact-forms/`;
 
-async function sendTheForm() {
+async function sendTheForm(name, email, subject, text) {
+    
+    // const formData = JSON.stringify({name: name, email: email, text: text});
+
+
+    // const contactForm = {
+    //     method: "POST",
+    //     body: formInfo
+    // }
+    
     try {
         const getContact = await fetch(CORSFIX + contactAPI);
         const resultContact = await getContact.json();
         console.log(resultContact);
-
-        const nameForm = fullName.trim().text;
-        const emailForm = email.trim().text;
-        const subjectForm = subject.trim().text;
-        const textForm = textArea.trim().text;
-
-        const contactForm = {nameForm, emailForm, subjectForm, textForm}
 
         console.log(contactForm)
 
@@ -126,4 +136,5 @@ async function sendTheForm() {
     catch(error) {
         console.log("An error occurred " + error)
     }
-}
+};
+

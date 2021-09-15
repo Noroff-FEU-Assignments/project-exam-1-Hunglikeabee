@@ -53,7 +53,6 @@ async function getMyBlog() {
 
 
 
-
         // THE BIG CAROUSEL MAKE IT SPIN!!!
 
         const carousel = document.querySelector(".index-carousel");
@@ -157,7 +156,7 @@ async function getMyBlog() {
             widthOutput = window.innerWidth;
             checkWidthScreen(widthOutput)
         };
-    
+    console.log(*.env.API_KEY);
     }
     catch(error) {
         console.log("An error occurred " + error)

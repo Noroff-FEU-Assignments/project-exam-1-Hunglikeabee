@@ -47,8 +47,6 @@ async function getMyBlog() {
     
             }
         }
-
-
         
         localStorage.clear();
         
