@@ -98,39 +98,43 @@ function validateForm(event) {
     message.style.display = "grid";
     message.innerHTML = "Message sendt!"
 
-    const nameForm = fullName.trim().text;
-    const emailForm = email.trim().text;
-    const subjectForm = subject.trim().text;
-    const textForm = textArea.trim().text;
+    const nameForm = fullName.value.trim();
+    const emailForm = email.value.trim();
+    const subjectForm = subject.value.trim();
+    const textForm = textArea.value.trim();
+    const postId = 47;
 
-    sendTheForm(nameForm, emailForm, subjectForm, textForm);
+    sendTheForm(postId, nameForm, emailForm, subjectForm, textForm);
     
     form.reset();
     button.disabled = "true";
 };
 
-form.addEventListener("click", sendTheForm);
 form.addEventListener("submit", validateForm);
 
-const CORSFIX = `https://noroffcors.herokuapp.com/`;
-const contactAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/contact-form-7/v1/contact-forms/`;
 
-async function sendTheForm(name, email, subject, text) {
-    
-    // const formData = JSON.stringify({name: name, email: email, text: text});
+async function sendTheForm(post, name, email, subject, text) {
+
+    const CORSFIX = `https://noroffcors.herokuapp.com/`;
+    const commentsAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/comments`;
+        
+    const formData = JSON.stringify({post: post, author_name: name, email: email, content: subject, type: text, type: "comment"});
 
 
-    // const contactForm = {
-    //     method: "POST",
-    //     body: formInfo
-    // }
+    const options = {
+        method: "POST",
+        body: formData,
+        headers: {
+        "Content-Type": "application/json"
+        }
+    };
     
     try {
-        const getContact = await fetch(CORSFIX + contactAPI);
-        const resultContact = await getContact.json();
-        console.log(resultContact);
+        const getComments = await fetch(CORSFIX + commentsAPI, options);
+        const resultComments = await getComments.json();
+        console.log(resultComments);
 
-        console.log(contactForm)
+        console.log(json)
 
     }
     catch(error) {

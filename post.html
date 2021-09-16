@@ -53,6 +53,20 @@
             <div class="modal__image-container"></div>
             <span class="modal-close">X</span>
         </section>
+        <section clasS="comment__container">
+
+        </section>
+        <form class="comment__form" id="comment__form" method="POST">
+            <h2>Comment</h2>
+            <label for="fullname">Name</label>
+            <input type="text" name="fullname" aria-label="Full name" id="comment__form-fullname" required>
+            <p class="fullname-error">Name is too short</p>
+            <label for="textarea">Your message</label>
+            <textarea name="textarea" aria-label="Text area, type here" id="comment__form-textarea" cols="30" rows="5" maxlength="200"></textarea>
+            <p class="textarea-error">Text is to short</p>
+            <div class="comment__form-message"></div>
+            <button disabled class="comment__form-button">Send</button>
+        </form>
     </main>
     <footer>
         <section class="footer__container">

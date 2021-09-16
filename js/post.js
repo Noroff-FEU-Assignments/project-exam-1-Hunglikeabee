@@ -1,6 +1,7 @@
 const CORSFIX = `https://noroffcors.herokuapp.com/`;
 const postsAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/posts?_embed&per_page=100`;
 const mediaAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/media?per_page=100`;
+const commentsAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/comments?per_page=100`;
 
 const getParameter = document.location.search;
 const theParameter = new URLSearchParams(getParameter);
@@ -12,12 +13,15 @@ if (id === null) {
     location.href = "/index.html";
 }
 
-async function getMyBlog() {
+async function getMyBlog() {  
     try {
+
         const fetchPosts = await fetch(CORSFIX + postsAPI);
         const fetchMedia = await fetch(CORSFIX + mediaAPI);
+        const getComments = await fetch(CORSFIX + commentsAPI);
         const resultPosts = await fetchPosts.json();
         const resultMedia = await fetchMedia.json();
+        const resultComments = await getComments.json();
         console.log(resultPosts);
         console.log(resultMedia);
         
@@ -53,6 +57,26 @@ async function getMyBlog() {
         }
         }
 
+
+        const commentContainer = document.querySelector(".comment__container")
+        function loadComments() {
+            commentContainer.innerHTML = "";
+            for (let m = 0; m < 5; m++) {
+                if(resultComments[m].post == id) {
+                    commentContainer.innerHTML += `<div class="comment ${resultComments[m].id}">
+                                                    <h3 class="author-name">${resultComments[m].author_name}</h3>
+                                                    <div class="post-date">${resultComments[m].date}</div>
+                                                    ${resultComments[m].content.rendered}
+                                                    </div>`
+                }
+            }
+        }
+        loadComments();
+
+
+
+
+
                 /* Modal attempt */
 
 
@@ -85,6 +109,7 @@ async function getMyBlog() {
                     }
                 }
 
+
     }
     catch(error) {
         console.log("An error occurred" + error)
@@ -92,3 +117,114 @@ async function getMyBlog() {
 };
 
 getMyBlog();
+
+
+
+
+
+/* Comment form */
+
+const fullName = document.querySelector("#comment__form-fullname");
+const textArea = document.querySelector("#comment__form-textarea");
+
+const form = document.querySelector("#comment__form");
+const button = document.querySelector(".comment__form-button");
+const message = document.querySelector(".comment__form-message");
+
+const fullNameError = document.querySelector(".fullname-error");
+const textAreaError = document.querySelector(".textarea-error");
+
+fullName.addEventListener("keyup", () => {
+    checkButton();
+    checkName();
+});
+
+textArea.addEventListener("keyup", () => {
+    checkButton();
+    checkTextArea();
+});
+
+function checkName() {
+    if(checkForm(fullName.value, 5)) {
+        fullNameError.style.display = "none";
+    }
+    else {
+        fullNameError.style.display = "block";
+    }
+};
+
+function checkTextArea() {
+    if(checkForm(textArea.value, 25)) {
+        textAreaError.style.display = "none";
+    }
+    else {
+        textAreaError.style.display = "block";
+    }
+};
+
+function checkButton() {
+    if(checkForm(fullName.value, 5) && checkForm(textArea.value, 25)) {
+        button.disabled = false;
+    }
+    else {
+        message.innerHTML = "";
+    }
+
+};
+
+function checkForm(value, length) {
+    if(value.trim().length > length) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+
+function validateEmail(email) {
+    const regEx = /\S+@\S+\.\S+/;
+    const patternMatches = regEx.test(email);
+    return patternMatches;
+};
+
+function validateForm(event) {
+    event.preventDefault();
+    message.style.display = "grid";
+    message.innerHTML = "Message sendt!"
+
+    const nameForm = fullName.value.trim();
+    const textForm = textArea.value.trim();
+
+    sendTheForm(id, nameForm, textForm);
+    
+    form.reset();
+    button.disabled = "true";
+};
+
+form.addEventListener("submit", validateForm);
+
+
+async function sendTheForm(post, name, text) {
+
+    const CORSFIX = `https://noroffcors.herokuapp.com/`;
+    const commentsAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/comments`;
+        
+    const formData = JSON.stringify({post: post, author_name: name, content: text, type: "comment"});
+
+
+    const options = {
+        method: "POST",
+        body: formData,
+        headers: {
+        "Content-Type": "application/json"
+        }
+    };
+    
+    try {
+        const getComments = await fetch(CORSFIX + commentsAPI, options);
+        getMyBlog();
+    }
+    catch(error) {
+        console.log("An error occurred " + error)
+    }
+};

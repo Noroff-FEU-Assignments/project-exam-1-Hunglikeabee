@@ -7,9 +7,7 @@
 }
 
 /* HTML */
-html {
-  /* background: var(--blackgray); */
-}
+
 
 /* Body */
 
@@ -17,8 +15,6 @@ body {
   max-width: 1920px;
   margin: 0 auto;
   background: white;
-  /* border-radius: var(--defaultradius);
-  box-shadow: 0px 0px 5px 2px; */
 }
 
 .fas {

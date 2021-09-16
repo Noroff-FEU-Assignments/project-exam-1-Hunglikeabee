@@ -156,7 +156,6 @@ async function getMyBlog() {
             widthOutput = window.innerWidth;
             checkWidthScreen(widthOutput)
         };
-    console.log(*.env.API_KEY);
     }
     catch(error) {
         console.log("An error occurred " + error)

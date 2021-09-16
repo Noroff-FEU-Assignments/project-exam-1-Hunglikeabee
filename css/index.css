@@ -45,9 +45,6 @@ main {
     background-color: var(--offwhite);
 }
 
-.carousel__text {
-
-}
 
 .carousel__container button {
     justify-self: center;
