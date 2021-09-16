@@ -50,8 +50,8 @@ async function getMyBlog() {
     
                 for(let j = 0; j < resultMedia.length; j++) {
                     if(resultMedia[j].post === resultPosts[i].id) {
-                        postContainer.innerHTML += `<div class="id${resultMedia[j].post} modal" style="background-image: url(${resultMedia[j].media_details.sizes.large.source_url})"></div>
-                                                    <div class="caption">${resultMedia[j].caption.rendered}</div>`;
+                        postContainer.innerHTML += `<div class="image-caption"><div class="id${resultMedia[j].post} modal" style="background-image: url(${resultMedia[j].media_details.sizes.large.source_url})"></div>
+                                                    <div class="caption">${resultMedia[j].caption.rendered}</div></div>`;
                     }
             }
         }
@@ -60,8 +60,14 @@ async function getMyBlog() {
 
         const commentContainer = document.querySelector(".comment__container")
         function loadComments() {
+            
+            let lengthComments = 5;
+            if (resultComments.length < 5) {
+                lengthComments = resultComments.length;
+            }
+
             commentContainer.innerHTML = "";
-            for (let m = 0; m < 5; m++) {
+            for (let m = 0; m < lengthComments; m++) {
                 if(resultComments[m].post == id) {
                     commentContainer.innerHTML += `<div class="comment ${resultComments[m].id}">
                                                     <h3 class="author-name">${resultComments[m].author_name}</h3>
@@ -77,37 +83,36 @@ async function getMyBlog() {
 
 
 
-                /* Modal attempt */
+        /* Modal attempt */
 
 
-                const modalContainer = document.querySelector(".modal__container");
-                const postImages = document.querySelectorAll(".modal");
-                const modalImage = document.querySelector(".modal__image-container");
-                const modalClose = document.querySelector(".modal-close");
+        const modalContainer = document.querySelector(".modal__container");
+        const postImages = document.querySelectorAll(".modal");
+        const modalImage = document.querySelector(".modal__image-container");
+        const modalClose = document.querySelector(".modal-close");
 
-                postImages.forEach(function(imagesDoes) {
-                        imagesDoes.addEventListener("click", displayModal)
-                });
-        
-                function displayModal(event) {
-                    console.log(event.target)
-                    modalContainer.style.display = "flex";
-                    modalImage.innerHTML = `<div class="modal-image" style="${event.target.attributes.style.textContent}"></div>
-                    `
-                }
+        postImages.forEach(function(imagesDoes) {
+                imagesDoes.addEventListener("click", displayModal)
+        });
 
-                modalClose.addEventListener("click", () => {
-                    modalContainer.style.display = "none";
-                    modalImage.innerHTML = "";
-                });
+        function displayModal(event) {
+            console.log(event.target)
+            modalContainer.style.display = "flex";
+            modalImage.innerHTML = `<div class="modal-image" style="${event.target.attributes.style.textContent}"></div>`
+        }
 
-                window.addEventListener("click", closeModalWindow);
+        modalClose.addEventListener("click", () => {
+            modalContainer.style.display = "none";
+            modalImage.innerHTML = "";
+        });
 
-                function closeModalWindow(classClick) {
-                    if(classClick.target === modalContainer) {
-                        modalContainer.style.display = "none";
-                    }
-                }
+        window.addEventListener("click", closeModalWindow);
+
+        function closeModalWindow(classClick) {
+            if(classClick.target === modalContainer) {
+                modalContainer.style.display = "none";
+            }
+        }
 
 
     }
@@ -145,7 +150,7 @@ textArea.addEventListener("keyup", () => {
 });
 
 function checkName() {
-    if(checkForm(fullName.value, 5)) {
+    if(checkForm(fullName.value, 1)) {
         fullNameError.style.display = "none";
     }
     else {
@@ -154,7 +159,7 @@ function checkName() {
 };
 
 function checkTextArea() {
-    if(checkForm(textArea.value, 25)) {
+    if(checkForm(textArea.value, 15)) {
         textAreaError.style.display = "none";
     }
     else {
@@ -163,7 +168,7 @@ function checkTextArea() {
 };
 
 function checkButton() {
-    if(checkForm(fullName.value, 5) && checkForm(textArea.value, 25)) {
+    if(checkForm(fullName.value, 1) && checkForm(textArea.value, 15)) {
         button.disabled = false;
     }
     else {

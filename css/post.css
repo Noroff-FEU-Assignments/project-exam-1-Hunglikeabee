@@ -21,7 +21,6 @@ img {
 
 .content-text {
     background-color: var(--white);
-    margin-bottom: 20px;
 }
 
 
@@ -37,14 +36,19 @@ img {
     margin: 0 auto;
 }
 
-.post {
+.image-caption {
+    padding-top: 20px;
+}
+
+.image-caption:nth-child(odd) {
     background-color: var(--offwhite);
 }
 
-
+.image-caption:nth-child(even) {
+    background-color: var(--white);
+}
 
 .caption {
-    background-color: var(--white);
     width: 100%;
     margin: 20px auto;
 }
@@ -53,6 +57,12 @@ img {
     text-align: center;
     padding: 20px;
 
+}
+
+.divider-line {
+    width: 80%;
+    border: 1px solid var(--black);
+    margin: 0 auto;
 }
 
 .modal {
