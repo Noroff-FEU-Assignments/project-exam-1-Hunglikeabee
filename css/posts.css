@@ -62,8 +62,7 @@ a:hover {
   border: none;
   background-color: var(--blue);
   font-size: 24px;
-  width: 40%;
-  min-width: 200px;
+  width: 200px;
   margin: 30px auto;
   border-radius: var(--defaultradius);
   padding: 10px;

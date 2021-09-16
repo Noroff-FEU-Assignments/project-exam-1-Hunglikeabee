@@ -74,6 +74,7 @@ img {
     background-repeat: no-repeat;
     border-radius: var(--defaultradius);
     margin: 0 auto;
+    cursor: pointer;
 }
 
 /* Modal container */

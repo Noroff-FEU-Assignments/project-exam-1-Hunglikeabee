@@ -90,8 +90,9 @@ async function getMyBlog() {
         
         function getNextPages() {
             lengthPages = lengthPages + pageLengthVariable;
-            if (lengthPages > resultPosts.length) {
+            if (lengthPages >= resultPosts.length) {
                 lengthPages = resultPosts.length;
+                nextButton.style.display = "none";
             }
             makePostPage(countPages, lengthPages);
         }

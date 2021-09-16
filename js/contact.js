@@ -102,9 +102,8 @@ function validateForm(event) {
     const emailForm = email.value.trim();
     const subjectForm = subject.value.trim();
     const textForm = textArea.value.trim();
-    const postId = 47;
 
-    sendTheForm(postId, nameForm, emailForm, subjectForm, textForm);
+    sendTheForm(nameForm, emailForm, subjectForm, textForm);
     
     form.reset();
     button.disabled = "true";
@@ -113,14 +112,18 @@ function validateForm(event) {
 form.addEventListener("submit", validateForm);
 
 
-async function sendTheForm(post, name, email, subject, text) {
+
+
+async function sendTheForm(name, email, subject, text) {
 
     const CORSFIX = `https://noroffcors.herokuapp.com/`;
-    const commentsAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/comments`;
-        
-    const formData = JSON.stringify({post: post, author_name: name, email: email, content: subject, type: text, type: "comment"});
+    const commentsAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/contact-form-7/v1/contact-forms/191/feedback`;
+    
+    const formData = JSON.stringify({name: name, email: email, subject: subject, text: text});
 
 
+
+console.log(formData)
     const options = {
         method: "POST",
         body: formData,
@@ -132,9 +135,6 @@ async function sendTheForm(post, name, email, subject, text) {
     try {
         const getComments = await fetch(CORSFIX + commentsAPI, options);
         const resultComments = await getComments.json();
-        console.log(resultComments);
-
-        console.log(json)
 
     }
     catch(error) {

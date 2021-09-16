@@ -159,7 +159,7 @@ function checkName() {
 };
 
 function checkTextArea() {
-    if(checkForm(textArea.value, 15)) {
+    if(checkForm(textArea.value, 5)) {
         textAreaError.style.display = "none";
     }
     else {
@@ -168,7 +168,7 @@ function checkTextArea() {
 };
 
 function checkButton() {
-    if(checkForm(fullName.value, 1) && checkForm(textArea.value, 15)) {
+    if(checkForm(fullName.value, 1) && checkForm(textArea.value, 5)) {
         button.disabled = false;
     }
     else {
