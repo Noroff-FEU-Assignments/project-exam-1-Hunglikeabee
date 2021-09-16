@@ -68,6 +68,14 @@ button .fas:hover {
     color: var(--black);
 }
 
+.carousel__text {
+    font-weight: bold;
+}
+
+.time-dif {
+    font-size: 12px;
+}
+
 .index-carousel {
     padding: 20px;
     text-align: center;

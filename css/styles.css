@@ -14,7 +14,7 @@
 body {
   max-width: 1920px;
   margin: 0 auto;
-  background: white;
+  background-color: var(--white);
 }
 
 .fas {
@@ -28,7 +28,6 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   background-color: var(--white);
-  border-radius: var(--defaultradius);
   max-width: 1000px;
   margin: 0 auto;
 }
