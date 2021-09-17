@@ -12,6 +12,7 @@ async function getMyBlog() {
         const fetchPages = await fetch(CORSFIX + pagesAPI);
         const resultPosts = await fetchPosts.json();
         const resultPages = await fetchPages.json();
+        console.log(resultPosts)
 
         const makeFeelWelcome = document.querySelector(".welcome-message");
 
@@ -21,12 +22,10 @@ async function getMyBlog() {
         
         
         
-        // Search bar function
+        /* Search bar function */
 
         const searchText = document.querySelector(".search-text");
         const searchButton = document.querySelector(".search-button");
-
-       
 
         searchButton.addEventListener("click", searchFunction)
 
@@ -53,7 +52,7 @@ async function getMyBlog() {
 
 
 
-        // THE BIG CAROUSEL MAKE IT SPIN!!!
+        /* THE BIG CAROUSEL MAKE IT SPIN!!! */
 
         const carousel = document.querySelector(".index-carousel");
         const leftButtonCarousel = document.querySelector(".carousel__left-button");
