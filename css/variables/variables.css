@@ -9,7 +9,7 @@
   --offwhite: #dcdace;
 
   /* Fonts */
-  --defaultfont: Roboto, "Open Sans", Helvetica, sans-serif;
+  --defaultfont: "Roboto", "Open Sans", Helvetica, sans-serif;
 
   /* Border radius defaults */
   --defaultradius: 10px;
