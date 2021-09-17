@@ -22,11 +22,9 @@ async function getMyBlog() {
         const resultPosts = await fetchPosts.json();
         const resultMedia = await fetchMedia.json();
         const resultComments = await getComments.json();
-        console.log(resultPosts);
-        console.log(resultMedia);
-        
 
-        /* Fix order or images from wordpress based on title number */
+
+        /* Fix order or images from wordpress based on title date numbers ore custom order */
 
         function fixOrder(a, b) {
             if (a.title.rendered < b.title.rendered){
@@ -57,10 +55,10 @@ async function getMyBlog() {
         }
         }
 
+        /* Load and display comments for the post */
 
         const commentContainer = document.querySelector(".comment__container")
         function loadComments() {
-            
             let lengthComments = 5;
             if (resultComments.length < 5) {
                 lengthComments = resultComments.length;
@@ -83,7 +81,7 @@ async function getMyBlog() {
 
 
 
-        /* Modal attempt */
+        /* Modal for the images */
 
 
         const modalContainer = document.querySelector(".modal__container");
@@ -96,7 +94,6 @@ async function getMyBlog() {
         });
 
         function displayModal(event) {
-            console.log(event.target)
             modalContainer.style.display = "flex";
             modalImage.innerHTML = `<div class="modal-image" style="${event.target.attributes.style.textContent}"></div>`
         }
@@ -127,7 +124,7 @@ getMyBlog();
 
 
 
-/* Comment form */
+/* Comment form and error checking */
 
 const fullName = document.querySelector("#comment__form-fullname");
 const textArea = document.querySelector("#comment__form-textarea");
@@ -172,7 +169,7 @@ function checkButton() {
         button.disabled = false;
     }
     else {
-        message.innerHTML = "";
+        message.style.display = "none";
     }
 
 };
@@ -225,8 +222,10 @@ async function sendTheForm(post, name, text) {
         }
     };
     
+    console.log(formData)
     try {
         const getComments = await fetch(CORSFIX + commentsAPI, options);
+        console.log(getComments)
         getMyBlog();
     }
     catch(error) {
