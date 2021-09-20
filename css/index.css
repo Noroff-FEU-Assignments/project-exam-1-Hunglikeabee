@@ -74,6 +74,9 @@ button .fas:hover {
 
 .time-dif {
     font-size: 12px;
+    text-align: right;
+    margin-right: 10px;
+    margin-top: 4px;
 }
 
 .index-carousel {

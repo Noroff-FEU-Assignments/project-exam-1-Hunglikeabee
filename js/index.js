@@ -12,7 +12,6 @@ async function getMyBlog() {
         const fetchPages = await fetch(CORSFIX + pagesAPI);
         const resultPosts = await fetchPosts.json();
         const resultPages = await fetchPages.json();
-        console.log(resultPosts)
 
         const makeFeelWelcome = document.querySelector(".welcome-message");
 
@@ -61,16 +60,68 @@ async function getMyBlog() {
             carousel.innerHTML = "";
             for(let i = countPages; i < readLengthCarousel; i++) {
                 let valueDif = resultPosts[i]._embedded["wp:term"][1][0].name;
-                let resultDif = valueDif[3]; 
+                let resultDif = parseInt(valueDif[3]); 
+
+                let difficultyDice;
+                switch(resultDif) {
+                    case 6:
+                        difficultyDice = `<i class="fas fa-dice-six"></i>`;
+                        break;
+                    case 5:
+                        difficultyDice = `<i class="fas fa-dice-five"></i>`;
+                        break;
+                    case 4:
+                        difficultyDice = `<i class="fas fa-dice-four"></i>`;
+                        break;
+                    case 3:
+                        difficultyDice = `<i class="fas fa-dice-four"></i>`;
+                        break;
+                    case 2:
+                        difficultyDice = `<i class="fas fa-dice-two"></i>`;
+                        break;
+                    case 1:
+                        difficultyDice = `<i class="fas fa-dice-one"></i>`;
+                        break;
+                    default:
+                        difficultyDice = `<i class="fas fa-dice-d6"></i>`;
+                }
 
                 let valueTime = resultPosts[i]._embedded["wp:term"][1][1].name;
-                let resultTime = valueTime[4];
+                let resultTime = parseInt(valueTime[4]);
+
+                let timeDice;
+                switch(resultTime) {
+                    case 6:
+                        timeDice = `<i class="fas fa-dice-six"></i>`;
+                        break;
+                    case 5:
+                        timeDice = `<i class="fas fa-dice-five"></i>`;
+                        break;
+                    case 4:
+                        timeDice = `<i class="fas fa-dice-four"></i>`;
+                        break;
+                    case 3:
+                        timeDice = `<i class="fas fa-dice-four"></i>`;
+                        break;
+                    case 2:
+                        timeDice = `<i class="fas fa-dice-two"></i>`;
+                        break;
+                    case 1:
+                        timeDice = `<i class="fas fa-dice-one"></i>`;
+                        break;
+                    default:
+                        timeDice = `<i class="fas fa-dice-d6"></i>`;
+                }
+
+                for(r = 0; r > resultTime.length; r++) {
+                    StaticRange
+                }
 
                 carousel.innerHTML += `<a href="post.html?id=${resultPosts[i].id}"><div class="carousel-boxes postid-${resultPosts[i].id}">
                                             <div class="carousel__text">${resultPosts[i].title.rendered}</div>
                                             <div class="post-image id${resultPosts[i].id}" style="background-image: url(${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url})"></div>
-                                            <div class="time-dif">Time used: ${resultDif} of 5</div>
-                                            <div class="time-dif">Difficulty: ${resultTime} of 5</div>
+                                            <div class="time-dif">Time used: ${difficultyDice}</div>
+                                            <div class="time-dif">Difficulty: ${timeDice}</div>
                                          </div>
                                        </a>`;
                                        if(`${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}` === undefined) {
@@ -79,6 +130,7 @@ async function getMyBlog() {
             }
         }
         
+        /* Buttons for the carousel */
 
         leftButtonCarousel.addEventListener("click", previousCarousel);
         rightButtonCarousel.addEventListener("click", nextCarousel);
@@ -118,6 +170,8 @@ async function getMyBlog() {
             makeCarousel(countPages, lengthCarousel);
             
         }
+
+        /* Check window width for amount of images loaded */
 
         var checkScreenWidth = window.innerWidth;
         function checkWidthScreen(checkScreenWidth) {

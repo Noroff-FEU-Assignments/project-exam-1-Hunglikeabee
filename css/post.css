@@ -205,12 +205,12 @@ textarea {
 
 .comment__form-message {
     display: none;
-    width: 80%;
+    width: 70%;
     text-align: center;
     font-weight: bold;
-    margin: 20px auto;
-    padding: 10px;
-    font-size: 24px;
+    margin: 18px auto;
+    padding: 5px;
+    font-size: 20px;
     background-color: var(--blue);
     border-radius: var(--defaultradius);
 }

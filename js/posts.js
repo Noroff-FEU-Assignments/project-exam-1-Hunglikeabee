@@ -23,10 +23,59 @@ async function getMyBlog() {
             posts.innerHTML = "";
             for(let i = countPages; i < lengthPages; i++) {
                 let valueDif = resultPosts[i]._embedded["wp:term"][1][0].name;
-                let resultDif = valueDif[3]; 
+                let resultDif = parseInt(valueDif[3]);
+
+                let difficultyDice;
+                switch(resultDif) {
+                    case 6:
+                        difficultyDice = `<i class="fas fa-dice-six"></i>`;
+                        break;
+                    case 5:
+                        difficultyDice = `<i class="fas fa-dice-five"></i>`;
+                        break;
+                    case 4:
+                        difficultyDice = `<i class="fas fa-dice-four"></i>`;
+                        break;
+                    case 3:
+                        difficultyDice = `<i class="fas fa-dice-four"></i>`;
+                        break;
+                    case 2:
+                        difficultyDice = `<i class="fas fa-dice-two"></i>`;
+                        break;
+                    case 1:
+                        difficultyDice = `<i class="fas fa-dice-one"></i>`;
+                        break;
+                    default:
+                        difficultyDice = `<i class="fas fa-dice-d6"></i>`;
+                }
 
                 let valueTime = resultPosts[i]._embedded["wp:term"][1][1].name;
-                let resultTime = valueTime[4];
+                let resultTime = parseInt(valueTime[4]);
+
+                let timeDice;
+                switch(resultTime) {
+                    case 6:
+                        timeDice = `<i class="fas fa-dice-six"></i>`;
+                        break;
+                    case 5:
+                        timeDice = `<i class="fas fa-dice-five"></i>`;
+                        break;
+                    case 4:
+                        timeDice = `<i class="fas fa-dice-four"></i>`;
+                        break;
+                    case 3:
+                        timeDice = `<i class="fas fa-dice-four"></i>`;
+                        break;
+                    case 2:
+                        timeDice = `<i class="fas fa-dice-two"></i>`;
+                        break;
+                    case 1:
+                        timeDice = `<i class="fas fa-dice-one"></i>`;
+                        break;
+                    default:
+                        timeDice = `<i class="fas fa-dice-d6"></i>`;
+                }
+
                 for(r = 0; r > resultTime.length; r++) {
                     StaticRange
                 }
@@ -36,8 +85,8 @@ async function getMyBlog() {
                                     <div class="title">${resultPosts[i].title.rendered}</div>
                                     <div class="posts-image" style="background-image: url(${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url})"></div>
                                     <div class="time-dif">
-                                        <div>Time used: ${resultTime} of 5</div>
-                                        <div>Difficulty: ${resultDif} of 5</div>
+                                        <div>Time used: ${timeDice}</div>
+                                        <div>Difficulty: ${difficultyDice}</div>
                                     </div>${resultPosts[i].excerpt.rendered}</div></a>
                                     <div class="divider-line"></div>`;
     
