@@ -12,22 +12,22 @@ const emailError = document.querySelector(".email-error");
 const subjectError = document.querySelector(".subject-error");
 const textAreaError = document.querySelector(".textarea-error");
 
-fullName.addEventListener("keyup", () => {
+fullName.addEventListener("focusout", () => {
     checkButton();
     checkName();
 });
 
-email.addEventListener("keyup", () => {
+email.addEventListener("focusout", () => {
     checkButton();
     checkEmail();
 });
 
-subject.addEventListener("keyup", () => {
+subject.addEventListener("focusout", () => {
     checkButton();
     checkSubject();
 });
 
-textArea.addEventListener("keyup", () => {
+textArea.addEventListener("focusout", () => {
     checkButton();
     checkTextArea();
 });

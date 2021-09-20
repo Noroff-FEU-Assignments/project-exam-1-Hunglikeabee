@@ -49,6 +49,7 @@ input,
 textarea {
   border: none;
   border-radius: var(--defaultradius);
+  padding: 5px;
 }
 
 textarea {

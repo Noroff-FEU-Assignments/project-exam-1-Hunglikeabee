@@ -135,12 +135,12 @@ const message = document.querySelector(".comment__form-message");
 const fullNameError = document.querySelector(".fullname-error");
 const textAreaError = document.querySelector(".textarea-error");
 
-fullName.addEventListener("keyup", () => {
+fullName.addEventListener("focusout", () => {
     checkButton();
     checkName();
 });
 
-textArea.addEventListener("keyup", () => {
+textArea.addEventListener("focusout", () => {
     checkButton();
     checkTextArea();
 });
