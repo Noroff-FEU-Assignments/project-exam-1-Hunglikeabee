@@ -34,6 +34,11 @@ a:hover {
   border-radius: var(--defaultradius);
 }
 
+.posts:hover {
+  padding: 19px;
+  border: 1px solid var(--black)
+}
+
 .posts-image {
   height: 150px;
   background-position: center;

@@ -215,7 +215,7 @@ textarea {
     border-radius: var(--defaultradius);
 }
 
-button {
+.comment__form-button {
     width: 150px;
     border: none;
     background-color: var(--blue);

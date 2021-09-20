@@ -1,7 +1,6 @@
-const CORSFIX = `https://noroffcors.herokuapp.com/`;
-const postsAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/posts?_embed&per_page=100`;
-const mediaAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/media?per_page=100`;
-const commentsAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/comments?per_page=100`;
+const postsAPI = `https://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/posts?_embed&per_page=100`;
+const mediaAPI = `https://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/media?per_page=100`;
+const commentsAPI = `https://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/comments?per_page=100`;
 
 const getParameter = document.location.search;
 const theParameter = new URLSearchParams(getParameter);
@@ -16,9 +15,9 @@ if (id === null) {
 async function getMyBlog() {  
     try {
 
-        const fetchPosts = await fetch(CORSFIX + postsAPI);
-        const fetchMedia = await fetch(CORSFIX + mediaAPI);
-        const getComments = await fetch(CORSFIX + commentsAPI);
+        const fetchPosts = await fetch(postsAPI);
+        const fetchMedia = await fetch(mediaAPI);
+        const getComments = await fetch(commentsAPI);
         const resultPosts = await fetchPosts.json();
         const resultMedia = await fetchMedia.json();
         const resultComments = await getComments.json();
@@ -208,8 +207,7 @@ form.addEventListener("submit", validateForm);
 
 async function sendTheForm(post, name, text) {
 
-    const CORSFIX = `https://noroffcors.herokuapp.com/`;
-    const commentsAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/comments`;
+    const commentsAPI = `https://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/comments`;
         
     const formData = JSON.stringify({post: post, author_name: name, content: text, type: "comment"});
 
@@ -224,8 +222,7 @@ async function sendTheForm(post, name, text) {
     
     console.log(formData)
     try {
-        const getComments = await fetch(CORSFIX + commentsAPI, options);
-        console.log(getComments)
+        const getComments = await fetch(commentsAPI, options);
         getMyBlog();
     }
     catch(error) {

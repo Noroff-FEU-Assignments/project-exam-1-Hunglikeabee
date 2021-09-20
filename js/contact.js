@@ -93,52 +93,30 @@ function validateEmail(email) {
     return patternMatches;
 };
 
-function validateForm(event) {
+async function validateForm(event) {
     event.preventDefault();
     message.style.display = "grid";
     message.innerHTML = "Message sendt!"
 
-    const nameForm = fullName.value.trim();
-    const emailForm = email.value.trim();
-    const subjectForm = subject.value.trim();
-    const textForm = textArea.value.trim();
-
-    sendTheForm(nameForm, emailForm, subjectForm, textForm);
+    const commentsAPI = `https://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/contact-form-7/v1/contact-forms/195/feedback`;
+    
+    const formData = event.target;
+    const body = new FormData(formData);
+    const options = {
+        method: "POST",
+        body
+    }
+    
+    try {
+        const getComments = await fetch(commentsAPI, options);
+        getComments;
+    }
+    catch(error) {
+        console.log("An error occurred " + error)
+    }
     
     form.reset();
     button.disabled = "true";
 };
 
 form.addEventListener("submit", validateForm);
-
-
-
-
-async function sendTheForm(name, email, subject, text) {
-
-    const CORSFIX = `https://noroffcors.herokuapp.com/`;
-    const commentsAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/contact-form-7/v1/contact-forms/191/feedback`;
-    
-    const formData = JSON.stringify({name: name, email: email, subject: subject, text: text});
-
-
-
-console.log(formData)
-    const options = {
-        method: "POST",
-        body: formData,
-        headers: {
-        "Content-Type": "application/json"
-        }
-    };
-    
-    try {
-        const getComments = await fetch(CORSFIX + commentsAPI, options);
-        const resultComments = await getComments.json();
-
-    }
-    catch(error) {
-        console.log("An error occurred " + error)
-    }
-};
-

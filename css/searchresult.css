@@ -8,7 +8,12 @@
     width: 600px;
     max-width: 80%;
     margin: 0 auto;
+    padding-bottom: 30px;
     font-size: 14px;
+}
+
+.search-error {
+    color: var(--red)
 }
 
 a {
@@ -24,6 +29,16 @@ a {
     padding: 20px;
     border-radius: var(--defaultradius)
 }
+
+.posts:hover {
+    padding: 19px;
+    border: 1px solid var(--black)
+}
+
+.time-dif {
+    padding: 20px;
+    text-align: right;
+  }
 
 .posts-image {
     height: 150px;

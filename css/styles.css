@@ -29,7 +29,7 @@ body {
 
 /* Header */
 
-header {
+.header-menu {
   display: grid;
   grid-template-columns: 1fr 1fr;
   background-color: var(--white);
@@ -42,8 +42,8 @@ header {
   background-size: contain;
   background-repeat: no-repeat;
   margin-left: 40px;
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
 }
 
 /* Hamburger menu */
@@ -94,7 +94,7 @@ header {
 /* Menu */
 
 nav {
-  margin-top: 50px;
+  margin-top: 40px;
   font-weight: bold;
 }
 
@@ -121,11 +121,16 @@ li a {
 /* Search bar */
 
 .search-bar {
-  display: grid;
-  grid-template-columns: 5fr 1fr;
-  max-width: 400px;
+  display: flex;
+  max-width: 500px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.search-text {
+  width: 500px;
+  max-width: 80%;
 }
 
 .search-bar input {

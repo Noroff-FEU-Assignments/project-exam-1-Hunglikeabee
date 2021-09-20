@@ -1,6 +1,5 @@
-const CORSFIX = `https://noroffcors.herokuapp.com/`;
-const postsAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/posts?_embed&per_page=100`;
-const pagesAPI = `http://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/pages?_embed&per_page=100`;
+const postsAPI = `https://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/posts?_embed&per_page=100`;
+const pagesAPI = `https://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/pages?_embed&per_page=100`;
 var postsArray = [];
 
 async function getMyBlog() {
@@ -8,8 +7,8 @@ async function getMyBlog() {
 
         // Get the API and create welcome message
 
-        const fetchPosts = await fetch(CORSFIX + postsAPI);
-        const fetchPages = await fetch(CORSFIX + pagesAPI);
+        const fetchPosts = await fetch(postsAPI);
+        const fetchPages = await fetch(pagesAPI);
         const resultPosts = await fetchPosts.json();
         const resultPages = await fetchPages.json();
 
@@ -17,38 +16,6 @@ async function getMyBlog() {
 
         makeFeelWelcome.innerHTML = `<h1 class="welcome-title">${resultPages[0].title.rendered}</h1>
                                         <div class="welcome-paragraph">${resultPages[0].content.rendered}</div>`
-
-        
-        
-        
-        /* Search bar function */
-
-        const searchText = document.querySelector(".search-text");
-        const searchButton = document.querySelector(".search-button");
-
-        searchButton.addEventListener("click", searchFunction)
-
-        function searchFunction() {
-            let theSearchText = searchText.value.trim().toUpperCase();
-
-            postsArray.push(searchText.value);
-
-            for(i = 0; i < resultPosts.length; i++) {
-                var checkTitle = resultPosts[i].title.rendered.trim().toUpperCase();
-                var checkText = resultPosts[i].excerpt.rendered.trim().toUpperCase();
-                if (checkTitle.includes(`${theSearchText}`) || checkText.includes(`${theSearchText}`)) {
-                    const postsToShow = resultPosts[i].id;
-                    postsArray.push(postsToShow);
-                    localStorage.setItem("postList", JSON.stringify(postsArray));
-                    window.location.href = "/searchresult.html"
-
-                }
-                else {
-                    window.location.href = "/searchresult.html"
-                }
-            }
-        }
-
 
 
         /* THE BIG CAROUSEL MAKE IT SPIN!!! */
