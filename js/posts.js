@@ -71,12 +71,12 @@ async function getMyBlog() {
                 
                 posts.innerHTML += `<a href="post.html?id=${resultPosts[i].id}">
                                     <div class="posts postid-${resultPosts[i].id}">
-                                    <div class="title">${resultPosts[i].title.rendered}</div>
+                                    <h2 class="posts-title">${resultPosts[i].title.rendered}</h2>
                                     <div class="posts-image" style="background-image: url(${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url})"></div>
                                     <div class="time-dif">
-                                        <div>Time used: ${timeDice}</div>
-                                        <div>Difficulty: ${difficultyDice}</div>
-                                    </div>${resultPosts[i].excerpt.rendered}</div></a>
+                                        <div aria-hidden="true">Time used: ${timeDice}</div>
+                                        <div aria-hidden="true">Difficulty: ${difficultyDice}</div>
+                                    </div><div class="text-posts" aria-hidden="true">${resultPosts[i].excerpt.rendered}</div></div></a>
                                     <div class="divider-line"></div>`;
     
             }

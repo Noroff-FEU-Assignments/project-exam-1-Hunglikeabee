@@ -1,5 +1,7 @@
 /* Main Index */
-
+h1 {
+    color: var(--black);
+}
 main {
     display: grid;
     grid-template-columns: 1fr;
@@ -64,9 +66,7 @@ main {
     margin-left: 10px;
 }
 
-button .fas:hover {
-    color: var(--black);
-}
+
 
 .carousel__text {
     font-weight: bold;

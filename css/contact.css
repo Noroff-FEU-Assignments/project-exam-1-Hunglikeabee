@@ -27,7 +27,7 @@ main {
   font-size: 20px;
   width: 150px;
   border: none;
-  background-color: var(--blue);
+  background-color: var(--black);
   color: var(--white);
   margin: 20px auto;
   padding: 10px;
@@ -64,6 +64,6 @@ textarea {
   margin: 20px auto;
   padding: 10px;
   font-size: 24px;
-  background-color: var(--blue);
+  background-color: var(--black);
   border-radius: var(--defaultradius);
 }

@@ -21,7 +21,7 @@ async function getMyBlog() {
         const resultPosts = await fetchPosts.json();
         const resultMedia = await fetchMedia.json();
         const resultComments = await getComments.json();
-
+        console.log(resultMedia)
 
         /* Fix order or images from wordpress based on title date numbers ore custom order */
 
@@ -36,18 +36,19 @@ async function getMyBlog() {
         }
         resultMedia.sort(fixOrder);
             
+        /* Load the text, images and captions */
 
         for (let i = 0; i < resultPosts.length; i++) {
             if (resultPosts[i].id == id) {
-                document.title = resultPosts[i].title.rendered;
+                document.title = resultPosts[i].title.rendered + " | Renovation Dad";
 
-                singlePost.innerHTML = `<div class="post postid-${resultPosts[i].id}"><div class="title"><p>${resultPosts[i].title.rendered}</p</div></div><div class="content-text">${resultPosts[i].excerpt.rendered}</div>`; 
+                singlePost.innerHTML = `<div class="post postid-${resultPosts[i].id}"><div class="title"><h1>${resultPosts[i].title.rendered}</h1></div></div><div class="content-text">${resultPosts[i].excerpt.rendered}</div>`; 
 
                 const postContainer = document.querySelector(`.postid-${resultPosts[i].id}`);
     
                 for(let j = 0; j < resultMedia.length; j++) {
                     if(resultMedia[j].post === resultPosts[i].id) {
-                        postContainer.innerHTML += `<div class="image-caption"><div class="id${resultMedia[j].post} modal" style="background-image: url(${resultMedia[j].media_details.sizes.large.source_url})"></div>
+                        postContainer.innerHTML += `<div class="image-caption"><div title="${resultMedia[j].alt_text}" class="id${resultMedia[j].post} modal" style="background-image: url(${resultMedia[j].media_details.sizes.large.source_url})"></div>
                                                     <div class="caption">${resultMedia[j].caption.rendered}</div></div>`;
                     }
             }
@@ -134,7 +135,8 @@ const message = document.querySelector(".comment__form-message");
 const fullNameError = document.querySelector(".fullname-error");
 const textAreaError = document.querySelector(".textarea-error");
 
-
+const fulleNameLength = 2;
+const textAreaLength = 5;
 
 
 fullName.addEventListener("keyup", () => {
@@ -148,13 +150,13 @@ textArea.addEventListener("keyup", () => {
 });
 
 function checkName() {
-    if(checkForm(fullName.value, 2)) {
+    if(checkForm(fullName.value, fulleNameLength)) {
         fullNameError.style.display = "none";
     }
 };
 
 function checkTextArea() {
-    if(checkForm(textArea.value, 5)) {
+    if(checkForm(textArea.value, textAreaLength)) {
         textAreaError.style.display = "none";
     }
 };
@@ -171,7 +173,7 @@ textArea.addEventListener("focusout", () => {
 });
 
 function checkFocusOutName() {
-    if(checkForm(fullName.value, 2)) {
+    if(checkForm(fullName.value, fulleNameLength)) {
         fullNameError.style.display = "none";
     }
     else {
@@ -180,7 +182,7 @@ function checkFocusOutName() {
 };
 
 function checkFocusOutTextArea() {
-    if(checkForm(textArea.value, 5)) {
+    if(checkForm(textArea.value, textAreaLength)) {
         textAreaError.style.display = "none";
     }
     else {
@@ -189,10 +191,11 @@ function checkFocusOutTextArea() {
 };
 
 function checkButton() {
-    if(checkForm(fullName.value, 2) && checkForm(textArea.value, 5)) {
+    if(checkForm(fullName.value, fulleNameLength) && checkForm(textArea.value, textAreaLength)) {
         button.disabled = false;
     }
     else {
+        button.disabled = true;
         message.style.display = "none";
     }
 
@@ -224,7 +227,7 @@ function validateForm(event) {
     sendTheForm(id, nameForm, textForm);
     
     form.reset();
-    button.disabled = "true";
+    button.disabled = true;
 };
 
 form.addEventListener("submit", validateForm);

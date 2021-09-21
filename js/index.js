@@ -87,8 +87,8 @@ async function getMyBlog() {
                 carousel.innerHTML += `<a href="post.html?id=${resultPosts[i].id}"><div class="carousel-boxes postid-${resultPosts[i].id}">
                                             <div class="carousel__text">${resultPosts[i].title.rendered}</div>
                                             <div class="post-image id${resultPosts[i].id}" style="background-image: url(${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url})"></div>
-                                            <div class="time-dif">Time used: ${difficultyDice}</div>
-                                            <div class="time-dif">Difficulty: ${timeDice}</div>
+                                            <div aria-hidden="true" class="time-dif">Time used: ${difficultyDice}</div>
+                                            <div aria-hidden="true" class="time-dif">Difficulty: ${timeDice}</div>
                                          </div>
                                        </a>`;
                                        if(`${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}` === undefined) {

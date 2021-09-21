@@ -14,9 +14,6 @@ a {
   color: var(--black);
 }
 
-a:hover {
-  color: var(--black);
-}
 
 .posts__container {
   width: 600px;
@@ -36,7 +33,7 @@ a:hover {
 
 .posts:hover {
   padding: 19px;
-  border: 1px solid var(--black)
+  border: 1px solid var(--black);
 }
 
 .posts-image {
@@ -46,8 +43,7 @@ a:hover {
   border-radius: var(--defaultradius);
 }
 
-.title {
-  font-size: 24px;
+.posts-title {
   font-weight: bold;
   padding: 10px;
 }
@@ -57,16 +53,21 @@ a:hover {
   text-align: right;
 }
 
+.text-posts {
+  padding: 10px;
+}
+
 .divider-line {
   width: 100%;
   height: 3px;
-  background-color: var(--blue);
+  background-color: var(--black);
 }
 
 .posts__button-more {
   display: grid;
   border: none;
-  background-color: var(--blue);
+  background-color: var(--black);
+  color: var(--white);
   font-size: 24px;
   width: 200px;
   margin: 30px auto;
@@ -76,7 +77,8 @@ a:hover {
 
 .posts__button-more:hover {
   cursor: pointer;
-  background-color: var(--orange);
+  background-color: var(--blue);
+  color: var(--black);
 }
 
 /* Sort button */

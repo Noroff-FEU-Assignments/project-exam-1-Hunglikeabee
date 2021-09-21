@@ -53,7 +53,7 @@ async function getMyBlog() {
                     default:
                         difficultyDice = `<i class="fas fa-dice-d6"></i>`;
                 }
-
+                
                 let valueTime = resultPosts[i]._embedded["wp:term"][1][1].name;
                 let resultTime = parseInt(valueTime[4]);
 

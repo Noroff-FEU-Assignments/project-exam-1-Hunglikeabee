@@ -14,6 +14,11 @@ const textAreaError = document.querySelector(".textarea-error");
 
 
 
+/* Check contact form */
+
+const fulleNameLength = 5;
+const subjectLength = 15;
+const textAreaLength = 25;
 
 
 fullName.addEventListener("keyup", () => {
@@ -37,7 +42,7 @@ textArea.addEventListener("keyup", () => {
 });
 
 function checkName() {
-    if(checkForm(fullName.value, 5)) {
+    if(checkForm(fullName.value, fulleNameLength)) {
         fullNameError.style.display = "none";
     }
 };
@@ -49,13 +54,13 @@ function checkEmail() {
 };
 
 function checkSubject() {
-    if(checkForm(subject.value, 15)) {
+    if(checkForm(subject.value, subjectLength)) {
         subjectError.style.display = "none";
     }
 };
 
 function checkTextArea() {
-    if(checkForm(textArea.value, 25)) {
+    if(checkForm(textArea.value, textAreaLength)) {
         textAreaError.style.display = "none";
     }
 };
@@ -83,7 +88,7 @@ textArea.addEventListener("focusout", () => {
 });
 
 function checkFocusOutName() {
-    if(checkForm(fullName.value, 5)) {
+    if(checkForm(fullName.value, fulleNameLength)) {
         fullNameError.style.display = "none";
     }
     else {
@@ -101,7 +106,7 @@ function checkFocusOutEmail() {
 };
 
 function checkFocusOutSubject() {
-    if(checkForm(subject.value, 15)) {
+    if(checkForm(subject.value, subjectLength)) {
         subjectError.style.display = "none";
     }
     else {
@@ -110,7 +115,7 @@ function checkFocusOutSubject() {
 };
 
 function checkFocusOutTextArea() {
-    if(checkForm(textArea.value, 25)) {
+    if(checkForm(textArea.value, textAreaLength)) {
         textAreaError.style.display = "none";
     }
     else {
@@ -119,10 +124,11 @@ function checkFocusOutTextArea() {
 };
 
 function checkButton() {
-    if(checkForm(fullName.value, 5) && checkForm(subject.value, 15) && checkForm(textArea.value, 25) && validateEmail(email.value)) {
+    if(checkForm(fullName.value, fulleNameLength) && checkForm(subject.value, subjectLength) && checkForm(textArea.value, textAreaLength) && validateEmail(email.value)) {
         button.disabled = false;
     }
     else {
+        button.disabled = true;
         message.innerHTML = "";
     }
 
@@ -166,7 +172,7 @@ async function validateForm(event) {
     }
     
     form.reset();
-    button.disabled = "true";
+    button.disabled = true;
 };
 
 form.addEventListener("submit", validateForm);

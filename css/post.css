@@ -1,227 +1,219 @@
 img {
-    display: flex;
-    max-width: 80%;
-    max-height: 600px;
-    margin: 0px auto;
-    border-radius: var(--defaultradius);
+  display: flex;
+  max-width: 80%;
+  max-height: 600px;
+  margin: 0px auto;
+  border-radius: var(--defaultradius);
 }
 
-.title {
-    background-color: var(--blue);
-    width: 100%;
-
-}
-
-.title > p  {
-    font-size: 30px;
-    font-weight: bold;
-    padding: 20px;
-    padding-left: 50px;
+.title > p {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px;
+  padding-left: 50px;
 }
 
 .content-text {
-    background-color: var(--white);
+  background-color: var(--white);
 }
 
-
-
 .single-post {
-    margin: 0 auto;
-    max-width: 1920px;
+  margin: 0 auto;
+  max-width: 1920px;
 }
 
 .single-post p {
-    padding: 20px 50px 20px 80px;
-    max-width: 400px;
-    margin: 0 auto;
+  padding: 20px 50px 20px 80px;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .image-caption {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 .image-caption:nth-child(odd) {
-    background-color: var(--offwhite);
+  background-color: var(--offwhite);
 }
 
 .image-caption:nth-child(even) {
-    background-color: var(--white);
+  background-color: var(--white);
 }
 
 .caption {
-    width: 100%;
-    margin: 20px auto;
+  width: 100%;
+  margin: 20px auto;
 }
 
 .caption p {
-    text-align: center;
-    padding: 20px;
-
+  text-align: center;
+  padding: 20px;
 }
 
 .divider-line {
-    width: 80%;
-    border: 1px solid var(--black);
-    margin: 0 auto;
+  width: 80%;
+  border: 1px solid var(--black);
+  margin: 0 auto;
 }
 
 .modal {
-    width: 400px;
-    max-width: 100%;
-    height: 250px;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    border-radius: var(--defaultradius);
-    margin: 0 auto;
-    cursor: pointer;
+  width: 400px;
+  max-width: 100%;
+  height: 250px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  cursor: pointer;
 }
 
 /* Modal container */
 
 .modal__container {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    align-items: center;
-    justify-content: space-around;
-    animation: lookcool ease-out 1s;
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: space-around;
+  animation: lookcool ease-out 1s;
+  z-index: 10;
 }
 
 @keyframes lookcool {
-    0% {
-        opacity: 0%;
-    }
-    100% {
-        opacity: 100%;
-    }
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 .modal__image-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 85%;
-    height: 85%;
-    background-color: white;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    border-radius: var(--defaultradius);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  height: 85%;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: var(--defaultradius);
 }
 
 .modal-image {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 98%;
-    height: 98%;
-    background-color: white;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    border-radius: var(--defaultradius);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 98%;
+  height: 98%;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: var(--defaultradius);
 }
 
 .modal-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 50px;
-    color: var(--blue);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 50px;
+  color: var(--black);
 }
 
 /* Comment form */
 
-.fullname-error, .subject-error, .textarea-error {
-    display: none;
-    color: var(--red);
-    margin: 5px 0px;
+.fullname-error,
+.subject-error,
+.textarea-error {
+  display: none;
+  color: var(--red);
+  margin: 5px 0px;
 }
 
 main {
-    background-color: var(--offwhite);
+  background-color: var(--offwhite);
 }
 
 .comment__container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
 }
 
-
 .comment {
-    display: grid;
-    word-break:break-word;
-    overflow: hidden;
-    padding: 10px 20px;
-    border-radius: var(--defaultradius);
-    border: 1px solid var(--black);
-    background-color: var(--white);
-    margin: 10px;
+  display: grid;
+  word-break: break-word;
+  overflow: hidden;
+  padding: 10px 20px;
+  border-radius: var(--defaultradius);
+  border: 1px solid var(--black);
+  background-color: var(--white);
+  margin: 10px;
 }
 
 .author-name {
-    margin-bottom: 2px;
+  margin-bottom: 2px;
 }
 
 .post-date {
-    font-size: 10px;
+  font-size: 10px;
 }
 
-
 .comment__form {
-    display: grid;
-    width: 400px;
-    max-width: 80%;
-    margin: 0px auto;
-    padding: 40px 0px;
+  display: grid;
+  width: 400px;
+  max-width: 80%;
+  margin: 0px auto;
+  padding: 40px 0px;
 }
 
 .comment__form label {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .comment__form-button:disabled {
-    opacity: 30%;
-    background-color: var(--red);
-  }
+  opacity: 30%;
+  background-color: var(--red);
+}
 
-input, textarea {
-    border: none;
-    border-radius: var(--defaultradius);
-    padding: 5px;
+input,
+textarea {
+  border: none;
+  border-radius: var(--defaultradius);
+  padding: 5px;
 }
 
 textarea {
-    resize: none;
+  resize: none;
 }
 
 .comment__form-message {
-    display: none;
-    width: 70%;
-    text-align: center;
-    font-weight: bold;
-    margin: 18px auto;
-    padding: 5px;
-    font-size: 20px;
-    background-color: var(--blue);
-    border-radius: var(--defaultradius);
+  display: none;
+  width: 70%;
+  text-align: center;
+  font-weight: bold;
+  margin: 18px auto;
+  padding: 5px;
+  font-size: 20px;
+  background-color: var(--black);
+  border-radius: var(--defaultradius);
 }
 
 .comment__form-button {
-    width: 150px;
-    border: none;
-    background-color: var(--blue);
-    color: var(--black);
-    margin: 20px auto;
-    padding: 10px;
-    border-radius: var(--defaultradius);
+  width: 150px;
+  border: none;
+  background-color: var(--black);
+  color: var(--black);
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: var(--defaultradius);
 }
