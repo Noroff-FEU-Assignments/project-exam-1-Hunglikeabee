@@ -23,7 +23,7 @@ img {
 }
 
 .single-post p {
-  padding: 20px 50px 20px 80px;
+  padding: 20px 40px 20px 40px;
   max-width: 400px;
   margin: 0 auto;
 }
@@ -126,7 +126,7 @@ img {
   right: 10px;
   cursor: pointer;
   font-size: 50px;
-  color: var(--black);
+  color: var(--blue);
 }
 
 /* Comment form */
@@ -204,14 +204,15 @@ textarea {
   margin: 18px auto;
   padding: 5px;
   font-size: 20px;
-  background-color: var(--black);
+  background-color: var(--green);
   border-radius: var(--defaultradius);
 }
 
 .comment__form-button {
   width: 150px;
   border: none;
-  background-color: var(--black);
+  background-color: var(--blue);
+  font-size: 20px;
   color: var(--black);
   margin: 20px auto;
   padding: 10px;

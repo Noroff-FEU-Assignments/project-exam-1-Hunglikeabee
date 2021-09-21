@@ -21,7 +21,6 @@ async function getMyBlog() {
         const resultPosts = await fetchPosts.json();
         const resultMedia = await fetchMedia.json();
         const resultComments = await getComments.json();
-        console.log(resultMedia)
 
         /* Fix order or images from wordpress based on title date numbers ore custom order */
 
@@ -42,7 +41,7 @@ async function getMyBlog() {
             if (resultPosts[i].id == id) {
                 document.title = resultPosts[i].title.rendered + " | Renovation Dad";
 
-                singlePost.innerHTML = `<div class="post postid-${resultPosts[i].id}"><div class="title"><h1>${resultPosts[i].title.rendered}</h1></div></div><div class="content-text">${resultPosts[i].excerpt.rendered}</div>`; 
+                singlePost.innerHTML = `<div class="post postid-${resultPosts[i].id}"><div class="title"><h1>${resultPosts[i].title.rendered}</h1></div><div class="content-text">${resultPosts[i].excerpt.rendered}</div>`; 
 
                 const postContainer = document.querySelector(`.postid-${resultPosts[i].id}`);
     
@@ -248,7 +247,6 @@ async function sendTheForm(post, name, text) {
         }
     };
     
-    console.log(formData)
     try {
         const getComments = await fetch(commentsAPI, options);
         getMyBlog();

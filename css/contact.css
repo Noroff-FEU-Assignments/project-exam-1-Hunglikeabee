@@ -12,7 +12,8 @@ main {
 }
 
 .contact__form {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   width: 400px;
   max-width: 80%;
   margin: 0px auto;
@@ -29,7 +30,7 @@ main {
   border: none;
   background-color: var(--black);
   color: var(--white);
-  margin: 20px auto;
+  margin: 0 auto;
   padding: 10px;
   border-radius: var(--defaultradius);
   cursor: pointer;

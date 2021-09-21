@@ -13,11 +13,8 @@ async function getMyBlog() {
         const resultPosts = await fetchPosts.json();
 
         const searchContainer = document.querySelector(".search-result");
-
         const searchParameter = document.querySelector(".search-parameter");
 
-
-        console.log(resultPosts)
         if(resultPosts.length === 0) {
             searchParameter.innerHTML = `Could not find any blogs matching your search: <p class="search-error">${searchQuery}</p>`
         }
@@ -53,7 +50,7 @@ async function getMyBlog() {
                     default:
                         difficultyDice = `<i class="fas fa-dice-d6"></i>`;
                 }
-                
+
                 let valueTime = resultPosts[i]._embedded["wp:term"][1][1].name;
                 let resultTime = parseInt(valueTime[4]);
 

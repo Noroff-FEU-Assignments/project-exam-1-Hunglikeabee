@@ -9,9 +9,7 @@
         });
         searchText.addEventListener("keyup", (e) => {
             let pressedKey = e.key;
-            console.log(pressedKey);
             let valueInput = searchText.value;
-            console.log(valueInput);
             if (pressedKey === "Enter") {
                 window.location.href = `searchresult.html?search=${valueInput}`
             }
