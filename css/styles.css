@@ -37,12 +37,11 @@ body {
 header {
   max-width: 100%;
   margin: 0 auto;
-  padding-right: 30px;
 }
 
 .header-menu {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
   background-color: var(--white);
   max-width: 800px;
   margin: 0 auto;
@@ -77,8 +76,8 @@ header {
 .hamburger__dropdown-menu {
   padding-right: 0px;
   display: none;
-  width: 300px;
-  max-width: 100vw;
+  width: 250px;
+  max-width: 80vw;
   background-color: var(--white);
   text-align: center;
   top: 100px;
