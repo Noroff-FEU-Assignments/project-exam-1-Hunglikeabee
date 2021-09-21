@@ -1,15 +1,9 @@
 const postsAPI = `https://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/posts?_embed&per_page=100`;
-const mediaAPI = `https://hunglikeabee.one/project-exam-1-Hunglikeabee/wp-json/wp/v2/media?per_page=100`;
 
 async function getMyBlog() {
     try {
         const fetchPosts = await fetch(postsAPI);
-        const fetchMedia = await fetch(mediaAPI);
         const resultPosts = await fetchPosts.json();
-        const resultMedia = await fetchMedia.json();
-        console.log(resultPosts);
-        console.log(resultMedia);
-
 
         const pageLengthVariable = 4;
         var countPages = 0;

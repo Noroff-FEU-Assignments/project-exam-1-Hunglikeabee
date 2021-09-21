@@ -12,22 +12,26 @@ const emailError = document.querySelector(".email-error");
 const subjectError = document.querySelector(".subject-error");
 const textAreaError = document.querySelector(".textarea-error");
 
-fullName.addEventListener("focusout", () => {
+
+
+
+
+fullName.addEventListener("keyup", () => {
     checkButton();
     checkName();
 });
 
-email.addEventListener("focusout", () => {
+email.addEventListener("keyup", () => {
     checkButton();
     checkEmail();
 });
 
-subject.addEventListener("focusout", () => {
+subject.addEventListener("keyup", () => {
     checkButton();
     checkSubject();
 });
 
-textArea.addEventListener("focusout", () => {
+textArea.addEventListener("keyup", () => {
     checkButton();
     checkTextArea();
 });
@@ -36,12 +40,58 @@ function checkName() {
     if(checkForm(fullName.value, 5)) {
         fullNameError.style.display = "none";
     }
+};
+
+function checkEmail() {
+    if(validateEmail(email.value)) {
+        emailError.style.display = "none";
+    }
+};
+
+function checkSubject() {
+    if(checkForm(subject.value, 15)) {
+        subjectError.style.display = "none";
+    }
+};
+
+function checkTextArea() {
+    if(checkForm(textArea.value, 25)) {
+        textAreaError.style.display = "none";
+    }
+};
+
+
+
+fullName.addEventListener("focusout", () => {
+    checkButton();
+    checkFocusOutName();
+});
+
+email.addEventListener("focusout", () => {
+    checkButton();
+    checkFocusOutEmail();
+});
+
+subject.addEventListener("focusout", () => {
+    checkButton();
+    checkFocusOutSubject();
+});
+
+textArea.addEventListener("focusout", () => {
+    checkButton();
+    checkFocusOutTextArea();
+});
+
+function checkFocusOutName() {
+    if(checkForm(fullName.value, 5)) {
+        fullNameError.style.display = "none";
+    }
     else {
         fullNameError.style.display = "block";
     }
 };
 
-function checkEmail() {
+function checkFocusOutEmail() {
     if(validateEmail(email.value)) {
         emailError.style.display = "none";
     }
@@ -50,7 +100,7 @@ function checkEmail() {
     }
 };
 
-function checkSubject() {
+function checkFocusOutSubject() {
     if(checkForm(subject.value, 15)) {
         subjectError.style.display = "none";
     }
@@ -59,7 +109,7 @@ function checkSubject() {
     }
 };
 
-function checkTextArea() {
+function checkFocusOutTextArea() {
     if(checkForm(textArea.value, 25)) {
         textAreaError.style.display = "none";
     }
@@ -79,7 +129,7 @@ function checkButton() {
 };
 
 function checkForm(value, length) {
-    if(value.trim().length > length) {
+    if(value.trim().length >= length) {
         return true;
     }
     else {

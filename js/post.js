@@ -58,27 +58,26 @@ async function getMyBlog() {
 
         const commentContainer = document.querySelector(".comment__container")
         function loadComments() {
-            let lengthComments = 5;
-            if (resultComments.length < 5) {
-                lengthComments = resultComments.length;
-            }
+            
+            var commentsLoaded = 5;
 
+            let counter = 1;
             commentContainer.innerHTML = "";
-            for (let m = 0; m < lengthComments; m++) {
+            for (let m = 0; m < resultComments.length; m++) {
                 if(resultComments[m].post == id) {
                     commentContainer.innerHTML += `<div class="comment ${resultComments[m].id}">
                                                     <h3 class="author-name">${resultComments[m].author_name}</h3>
                                                     <div class="post-date">${resultComments[m].date}</div>
                                                     ${resultComments[m].content.rendered}
                                                     </div>`
+                    counter++;
+                    if (counter > commentsLoaded) {
+                        break;
+                    }
                 }
             }
         }
         loadComments();
-
-
-
-
 
         /* Modal for the images */
 
@@ -135,18 +134,44 @@ const message = document.querySelector(".comment__form-message");
 const fullNameError = document.querySelector(".fullname-error");
 const textAreaError = document.querySelector(".textarea-error");
 
-fullName.addEventListener("focusout", () => {
+
+
+
+fullName.addEventListener("keyup", () => {
     checkButton();
     checkName();
 });
 
-textArea.addEventListener("focusout", () => {
+textArea.addEventListener("keyup", () => {
     checkButton();
     checkTextArea();
 });
 
 function checkName() {
-    if(checkForm(fullName.value, 1)) {
+    if(checkForm(fullName.value, 2)) {
+        fullNameError.style.display = "none";
+    }
+};
+
+function checkTextArea() {
+    if(checkForm(textArea.value, 5)) {
+        textAreaError.style.display = "none";
+    }
+};
+
+
+fullName.addEventListener("focusout", () => {
+    checkButton();
+    checkFocusOutName();
+});
+
+textArea.addEventListener("focusout", () => {
+    checkButton();
+    checkFocusOutTextArea();
+});
+
+function checkFocusOutName() {
+    if(checkForm(fullName.value, 2)) {
         fullNameError.style.display = "none";
     }
     else {
@@ -154,7 +179,7 @@ function checkName() {
     }
 };
 
-function checkTextArea() {
+function checkFocusOutTextArea() {
     if(checkForm(textArea.value, 5)) {
         textAreaError.style.display = "none";
     }
@@ -164,7 +189,7 @@ function checkTextArea() {
 };
 
 function checkButton() {
-    if(checkForm(fullName.value, 1) && checkForm(textArea.value, 5)) {
+    if(checkForm(fullName.value, 2) && checkForm(textArea.value, 5)) {
         button.disabled = false;
     }
     else {
