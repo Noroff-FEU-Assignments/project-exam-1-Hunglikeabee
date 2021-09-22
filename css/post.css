@@ -50,11 +50,7 @@ img {
   padding: 20px;
 }
 
-.divider-line {
-  width: 80%;
-  border: 1px solid var(--black);
-  margin: 0 auto;
-}
+
 
 .modal {
   width: 400px;
