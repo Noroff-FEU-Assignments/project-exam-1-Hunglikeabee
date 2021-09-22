@@ -2,65 +2,10 @@ main {
   padding-bottom: 20px;
 }
 
-img {
-  width: 200px;
-  height: auto;
-  max-height: 200px;
-  border-radius: var(--defaultradius);
-}
 
 a {
   text-decoration: none;
   color: var(--black);
-}
-
-
-.posts__container {
-  width: 600px;
-  max-width: 80%;
-  margin: 0 auto;
-  font-size: 14px;
-}
-
-.posts {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  margin: 50px auto;
-  background-color: var(--offwhite);
-  padding: 20px;
-  border-radius: var(--defaultradius);
-}
-
-.posts:hover {
-  padding: 19px;
-  border: 1px solid var(--black);
-}
-
-.posts-image {
-  height: 150px;
-  background-position: center;
-  background-size: cover;
-  border-radius: var(--defaultradius);
-}
-
-.posts-title {
-  font-weight: bold;
-  padding: 10px;
-}
-
-.time-dif {
-  padding: 20px;
-  text-align: right;
-}
-
-.text-posts {
-  padding: 10px;
-}
-
-.divider-line {
-  width: 100%;
-  height: 3px;
-  background-color: var(--black);
 }
 
 .posts__button-more {
@@ -92,10 +37,4 @@ a {
 #sortby {
   border-radius: var(--defaultradius);
   border-style: none;
-}
-
-@media only screen and (max-width: 600px) {
-  .posts {
-    grid-template-columns: 1fr;
-  }
 }

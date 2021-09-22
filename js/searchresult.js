@@ -16,10 +16,10 @@ async function getMyBlog() {
         const searchParameter = document.querySelector(".search-parameter");
 
         if(resultPosts.length === 0) {
-            searchParameter.innerHTML = `Could not find any blogs matching your search: <p class="search-error">${searchQuery}</p>`
+            searchParameter.innerHTML = `<h1 class="header-h1">Could not find any blogs matching: "${searchQuery}"</h1>`
         }
         else {
-            searchParameter.innerHTML = `<h1>Search result for:</h1> <h2>"${searchQuery}"</h2>`
+            searchParameter.innerHTML = `<h1 class="header-h1">Search result for: "${searchQuery}"</h1>`
             searchContainer.innerHTML = "";
             for(let i = 0; i < resultPosts.length; i++) {
 
@@ -79,12 +79,12 @@ async function getMyBlog() {
                 }
                         searchContainer.innerHTML += `<a href="post.html?id=${resultPosts[j].id}">
                                                         <div class="posts postid-${resultPosts[j].id}">
-                                                        <div class="title">${resultPosts[j].title.rendered}</div>
+                                                        <h2 class="post-title">${resultPosts[j].title.rendered}</h2>
                                                         <div class="posts-image" style="background-image: url(${resultPosts[j]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url})"></div>
                                                         <div class="time-dif">
-                                                            <div>Time used: ${timeDice}</div>
-                                                            <div>Difficulty: ${difficultyDice}</div>
-                                                        </div>${resultPosts[j].excerpt.rendered}</div></a>
+                                                            <div aria-hidden="true">Time used: ${timeDice}</div>
+                                                            <div aria-hidden="true">Difficulty: ${difficultyDice}</div>
+                                                        </div><div class="text-posts" aria-hidden="true">${resultPosts[j].excerpt.rendered}</div></div></a>
                                                         <div class="divider-line"></div>`;
                 
     

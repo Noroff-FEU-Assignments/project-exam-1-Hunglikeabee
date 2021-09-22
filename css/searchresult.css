@@ -1,9 +1,3 @@
-.search-parameter {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 .search-result {
   width: 600px;
   max-width: 80%;
@@ -19,48 +13,4 @@
 a {
   text-decoration: none;
   color: var(--black);
-}
-
-.posts {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  margin: 50px auto;
-  background-color: var(--offwhite);
-  padding: 20px;
-  border-radius: var(--defaultradius);
-}
-
-.posts:hover {
-  padding: 19px;
-  border: 1px solid var(--black);
-}
-
-.time-dif {
-  padding: 20px;
-  text-align: right;
-}
-
-.posts-image {
-  height: 150px;
-  background-position: center;
-  background-size: cover;
-  border-radius: var(--defaultradius);
-}
-
-.title {
-  font-size: 24px;
-  font-weight: bold;
-  padding: 10px;
-}
-
-.divider-line {
-  width: 100%;
-  height: 3px;
-  background-color: var(--black);
-}
-
-@media only screen and (max-width: 600px) {
-  .posts {
-    grid-template-columns: 1fr;
-  }
 }
