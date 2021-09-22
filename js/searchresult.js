@@ -11,6 +11,7 @@ async function getMyBlog() {
 
         const fetchPosts = await fetch(postsAPI);
         const resultPosts = await fetchPosts.json();
+        console.log(resultPosts);
 
         const searchContainer = document.querySelector(".search-result");
         const searchParameter = document.querySelector(".search-parameter");
@@ -22,9 +23,8 @@ async function getMyBlog() {
             searchParameter.innerHTML = `<h1 class="header-h1">Search result for: "${searchQuery}"</h1>`
             searchContainer.innerHTML = "";
             for(let i = 0; i < resultPosts.length; i++) {
-
-                for(let j = 0; j < resultPosts.length; j++) {
-                                        let valueDif = resultPosts[i]._embedded["wp:term"][1][0].name;
+                
+                let valueDif = resultPosts[i]._embedded["wp:term"][1][0].name;
                 let resultDif = parseInt(valueDif[3]);
 
                 let difficultyDice;
@@ -77,21 +77,19 @@ async function getMyBlog() {
                     default:
                         timeDice = `<i class="fas fa-dice-d6"></i>`;
                 }
-                        searchContainer.innerHTML += `<a href="post.html?id=${resultPosts[j].id}">
-                                                        <div class="posts postid-${resultPosts[j].id}">
-                                                        <h2 class="post-title">${resultPosts[j].title.rendered}</h2>
-                                                        <div class="posts-image" style="background-image: url(${resultPosts[j]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url})"></div>
+                        searchContainer.innerHTML += `<a href="post.html?id=${resultPosts[i].id}">
+                                                        <div class="posts postid-${resultPosts[i].id}">
+                                                        <h2 class="post-title">${resultPosts[i].title.rendered}</h2>
+                                                        <div class="posts-image" style="background-image: url(${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url})"></div>
                                                         <div class="time-dif">
                                                             <div aria-hidden="true">Time used: ${timeDice}</div>
                                                             <div aria-hidden="true">Difficulty: ${difficultyDice}</div>
-                                                        </div><div class="text-posts" aria-hidden="true">${resultPosts[j].excerpt.rendered}</div></div></a>
+                                                        </div><div class="text-posts" aria-hidden="true">${resultPosts[i].excerpt.rendered}</div></div></a>
                                                         <div class="divider-line"></div>`;
                 
-    
                 }
     
-            }
-        }        
+            }       
     }
     catch(error) {
         console.log("An error occurred " + error)
