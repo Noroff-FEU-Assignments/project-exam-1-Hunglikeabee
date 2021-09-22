@@ -160,6 +160,11 @@ li a {
   padding: 30px;
 }
 
+.active {
+ box-shadow: 0px 0px 7px 4px rgba(0, 0, 0, 0.2);
+ border-radius: var(--defaultradius)
+}
+
 /* Search bar */
 
 .search-bar {
