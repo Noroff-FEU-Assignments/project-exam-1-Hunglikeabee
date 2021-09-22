@@ -47,6 +47,11 @@ main {
     background-color: var(--offwhite);
 }
 
+.carousel-boxes:hover {
+    padding: 9px;
+    border: 1px solid var(--black);
+  }
+
 
 .carousel__container button {
     justify-self: center;
