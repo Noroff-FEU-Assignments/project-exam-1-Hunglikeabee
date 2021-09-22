@@ -82,7 +82,7 @@ img {
   align-items: center;
   justify-content: space-around;
   animation: lookcool ease-out 1s;
-  z-index: 10;
+  z-index: 9001;
 }
 
 @keyframes lookcool {
