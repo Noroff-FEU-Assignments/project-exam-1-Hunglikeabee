@@ -17,6 +17,32 @@ p {
   font-family: var(--defaultfont);
 }
 
+h1,h2,h3 {
+  font-family: var(--defaultfont);
+}
+
+p {
+  font-family: var(--defaultfont);
+}
+
+/* Font sizes */
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+p {
+  font-size: 18px;
+}
+
 /* HTML */
 
 /* Body */
@@ -299,7 +325,7 @@ footer {
   margin: 0 auto;
   width: 100px;
   height: 100px;
-  border: 5px solid var(--black);
+  border: 5px solid var(--blue);
   border-top: 5px solid var(--black);
   border-radius: 100%;
   animation-name: turn;
@@ -358,14 +384,14 @@ footer {
   }
 
   h1 {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   h2 {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   p {
-    font-size: 12px;
+    font-size: 16px;
   }
 }

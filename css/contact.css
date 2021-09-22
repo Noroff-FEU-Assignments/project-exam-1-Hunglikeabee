@@ -30,7 +30,7 @@ main {
   border: none;
   background-color: var(--black);
   color: var(--white);
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 10px;
   border-radius: var(--defaultradius);
   cursor: pointer;
@@ -65,6 +65,6 @@ textarea {
   margin: 20px auto;
   padding: 10px;
   font-size: 24px;
-  background-color: var(--black);
+  background-color: var(--green);
   border-radius: var(--defaultradius);
 }

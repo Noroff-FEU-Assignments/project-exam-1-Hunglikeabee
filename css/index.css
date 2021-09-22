@@ -78,7 +78,7 @@ main {
 }
 
 .time-dif {
-    font-size: 12px;
+    font-size: 14px;
     text-align: right;
     margin-right: 10px;
     margin-top: 4px;
@@ -112,7 +112,6 @@ main {
     margin: 0 auto;
     border-radius: var(--defaultradius);
 }
-
 
 @media only screen and (max-width: 850px) {
     .index-carousel {
