@@ -172,6 +172,7 @@ li a {
   left: 0%;
   right: 0%;
   background-color: var(--white);
+  box-shadow: 0px 15px 10px -15px;
   animation: menudown ease-in 0.5s;
   z-index: 100;
 }
