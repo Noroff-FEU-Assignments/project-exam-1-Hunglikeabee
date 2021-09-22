@@ -173,6 +173,7 @@ li a {
   right: 0%;
   background-color: var(--white);
   animation: menudown ease-in 0.5s;
+  z-index: 100;
 }
 
 @keyframes menudown {
