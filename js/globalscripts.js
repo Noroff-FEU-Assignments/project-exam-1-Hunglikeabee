@@ -15,22 +15,23 @@ searchText.addEventListener("keyup", (e) => {
     }
 });
 
+
+
 /* Scroll event navigation */
 
 const headerMenu = document.querySelector(".header-menu")
-
-
 
 function scrollFunction() {
     const scroll = window.scrollY;
     
     if (scroll > 130) {
         headerMenu.classList.add("scrolled-menu")
+        document.body.classList.add("body-padding")
 
     }
-    else  if ( scroll < 30){
+    else  if ( scroll < 1){
         headerMenu.classList.remove("scrolled-menu")
+        document.body.classList.remove("body-padding")
     }
 }
-
 document.addEventListener("scroll", scrollFunction);
