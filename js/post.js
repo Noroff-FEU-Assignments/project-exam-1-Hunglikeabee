@@ -86,6 +86,7 @@ async function getMyBlog() {
         const postImages = document.querySelectorAll(".modal");
         const modalImage = document.querySelector(".modal__image-container");
         const modalClose = document.querySelector(".modal-close");
+        const headerTop = document.querySelector("header");
 
         postImages.forEach(function(imagesDoes) {
                 imagesDoes.addEventListener("click", displayModal)
@@ -93,11 +94,13 @@ async function getMyBlog() {
 
         function displayModal(event) {
             modalContainer.style.display = "flex";
+            headerTop.style.opacity = "0";
             modalImage.innerHTML = `<div class="modal-image" style="${event.target.attributes.style.textContent}"></div>`
         }
 
         modalClose.addEventListener("click", () => {
             modalContainer.style.display = "none";
+            headerTop.style.opacity = "1";
             modalImage.innerHTML = "";
         });
 
@@ -106,6 +109,8 @@ async function getMyBlog() {
         function closeModalWindow(classClick) {
             if(classClick.target === modalContainer) {
                 modalContainer.style.display = "none";
+                headerTop.style.opacity = "1";
+                modalImage.innerHTML = "";
             }
         }
 
