@@ -89,8 +89,7 @@ async function getMyBlog() {
         //Sorting things out
 
         const sortBy = document.querySelector("#sortby")
-        sortBy.addEventListener("click", selectSort);
-        sortBy.addEventListener("focusout", selectSort);
+        sortBy.addEventListener("change", selectSort);
 
         function selectSort() {
             if (sortBy.value == "difficulty") {
