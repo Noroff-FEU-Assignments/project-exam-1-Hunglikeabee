@@ -48,7 +48,6 @@ p {
 /* Body */
 
 body {
-  max-width: 1200px;
   margin: 0 auto;
   background-color: var(--white);
 }
@@ -61,14 +60,14 @@ body {
 /* Header */
 
 header {
-  max-width: 100%;
+  width: 100%;
   margin: 0 auto;
+  background-color: var(--white);
 }
 
 .header-menu {
   display: grid;
   grid-template-columns: 5fr 1fr;
-  background-color: var(--white);
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -225,6 +224,11 @@ li a {
 }
 
 /* Main */
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 .title {
   background-color: var(--blackgray);

@@ -165,7 +165,8 @@ main {
 }
 
 .comment__form {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   width: 400px;
   max-width: 80%;
   margin: 0px auto;
@@ -206,6 +207,7 @@ textarea {
 
 .comment__form-button {
   width: 150px;
+  max-width: 80%;
   border: none;
   background-color: var(--blue);
   font-size: 20px;
