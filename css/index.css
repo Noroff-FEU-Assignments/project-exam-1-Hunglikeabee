@@ -1,135 +1,125 @@
 /* Main Index */
 h1 {
-    color: var(--black);
+  color: var(--black);
 }
 main {
-    display: grid;
-    grid-template-columns: 1fr;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .index-photo {
-    background-image: url("../images/housebynight.webp");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 350px;
-
+  background-image: url("../images/20210718_231007.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 350px;
 }
 
 .index-top {
-    background-color: var(--offwhite);
+  background-color: var(--offwhite);
 }
 
 .welcome-message {
-    display: grid;
-    margin: 60px auto;
-    max-width: 600px;
-    padding: 0px 20px;
+  display: grid;
+  margin: 60px auto;
+  max-width: 600px;
+  padding: 0px 20px;
 }
-
-
-
-
-
 
 /* The Carousel */
 
 .carousel__container {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 20fr 1fr;
-    max-width: 1000px;
-    margin: 0 auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 20fr 1fr;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .carousel-boxes {
-    border-radius: var(--defaultradius);
-    padding: 10px;
-    margin: 5px;
-    background-color: var(--offwhite);
+  border-radius: var(--defaultradius);
+  padding: 10px;
+  margin: 5px;
+  background-color: var(--offwhite);
 }
 
 .carousel-boxes:hover {
-    padding: 9px;
-    border: 1px solid var(--black);
-  }
-
+  padding: 9px;
+  border: 1px solid var(--black);
+}
 
 .carousel__container button {
-    justify-self: center;
-    align-self: center;
-    border-radius: 100%;
-    border: none;
-    width: 40px;
-    height: 40px;
-    box-shadow: 0px 0px 0px 20px var(--blackgray);
+  justify-self: center;
+  align-self: center;
+  border-radius: 100%;
+  border: none;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0px 0px 0px 20px var(--blackgray);
 }
 
 .carousel__left-button {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .carousel__right-button {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
-
-
 .carousel__text {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .time-dif {
-    font-size: 14px;
-    text-align: right;
-    margin-right: 10px;
-    margin-top: 4px;
+  font-size: 14px;
+  text-align: right;
+  margin-right: 10px;
+  margin-top: 4px;
 }
 
 .index-carousel {
-    padding: 20px;
-    text-align: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
+  padding: 20px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 .index-carousel a {
-    text-decoration: none;
-    color: var(--black);
+  text-decoration: none;
+  color: var(--black);
 }
 
 .index-carousel img {
-    max-width: 80%;
-    max-height: 500px;
-    margin: 0 auto;
+  max-width: 80%;
+  max-height: 500px;
+  margin: 0 auto;
 }
 
 .post-image {
-    height: 100px;
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0 auto;
-    border-radius: var(--defaultradius);
+  height: 100px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+  border-radius: var(--defaultradius);
 }
 
 @media only screen and (max-width: 850px) {
-    .index-carousel {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
+  .index-carousel {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
-
 @media only screen and (max-width: 700px) {
-    .index-carousel {
-        grid-template-columns: 1fr 1fr;
-    }
+  .index-carousel {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media only screen and (max-width: 550px) {
-    .index-carousel {
-        grid-template-columns: 1fr;
-    }
+  .index-carousel {
+    grid-template-columns: 1fr;
+  }
 }

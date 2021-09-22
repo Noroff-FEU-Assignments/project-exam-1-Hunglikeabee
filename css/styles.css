@@ -105,7 +105,7 @@ header {
   max-width: 80vw;
   background-color: var(--white);
   text-align: center;
-  top: 100px;
+  top: 70px;
   right: 0px;
   position: absolute;
   border-radius: 0px 0px 0px 10px;
@@ -309,7 +309,8 @@ footer {
 }
 
 .footer-links {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-self: center;
   margin: 0 auto;
@@ -329,11 +330,12 @@ footer {
 
 .social-media {
   background-color: var(--offwhite);
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px;
   max-width: 200px;
 }
 
