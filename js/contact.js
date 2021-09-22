@@ -174,6 +174,7 @@ async function validateForm(event) {
     form.reset();
     button.disabled = true;
     message.innerHTML = "";
+    message.style.display = "none";
 };
 
 form.addEventListener("submit", validateForm);

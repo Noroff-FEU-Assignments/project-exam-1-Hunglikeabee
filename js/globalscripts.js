@@ -24,7 +24,7 @@ const headerMenu = document.querySelector(".header-menu")
 function scrollFunction() {
     const scroll = window.scrollY;
     
-    if (scroll > 130) {
+    if (scroll > 100) {
         headerMenu.classList.add("scrolled-menu")
         document.body.classList.add("body-padding")
 
