@@ -17,7 +17,7 @@ async function getMyBlog() {
         makeFeelWelcome.innerHTML = `<h1 class="welcome-title">${resultPages[0].title.rendered}</h1>
                                         <div class="welcome-paragraph">${resultPages[0].content.rendered}</div>`
 
-
+        
         /* THE BIG CAROUSEL MAKE IT SPIN!!! */
 
         const carousel = document.querySelector(".index-carousel");
@@ -26,59 +26,19 @@ async function getMyBlog() {
         function makeCarousel(countPages, readLengthCarousel) {
             carousel.innerHTML = "";
             for(let i = countPages; i < readLengthCarousel; i++) {
+                
                 let valueDif = resultPosts[i]._embedded["wp:term"][1][0].name;
-                let resultDif = parseInt(valueDif[3]); 
+                let resultDif = parseInt(valueDif[3]);
 
                 let difficultyDice;
-                switch(resultDif) {
-                    case 6:
-                        difficultyDice = `<i class="fas fa-dice-six"></i>`;
-                        break;
-                    case 5:
-                        difficultyDice = `<i class="fas fa-dice-five"></i>`;
-                        break;
-                    case 4:
-                        difficultyDice = `<i class="fas fa-dice-four"></i>`;
-                        break;
-                    case 3:
-                        difficultyDice = `<i class="fas fa-dice-four"></i>`;
-                        break;
-                    case 2:
-                        difficultyDice = `<i class="fas fa-dice-two"></i>`;
-                        break;
-                    case 1:
-                        difficultyDice = `<i class="fas fa-dice-one"></i>`;
-                        break;
-                    default:
-                        difficultyDice = `<i class="fas fa-dice-d6"></i>`;
-                }
+                difficultyDice = dicePicker(resultDif);
 
+                
                 let valueTime = resultPosts[i]._embedded["wp:term"][1][1].name;
                 let resultTime = parseInt(valueTime[4]);
 
                 let timeDice;
-                switch(resultTime) {
-                    case 6:
-                        timeDice = `<i class="fas fa-dice-six"></i>`;
-                        break;
-                    case 5:
-                        timeDice = `<i class="fas fa-dice-five"></i>`;
-                        break;
-                    case 4:
-                        timeDice = `<i class="fas fa-dice-four"></i>`;
-                        break;
-                    case 3:
-                        timeDice = `<i class="fas fa-dice-four"></i>`;
-                        break;
-                    case 2:
-                        timeDice = `<i class="fas fa-dice-two"></i>`;
-                        break;
-                    case 1:
-                        timeDice = `<i class="fas fa-dice-one"></i>`;
-                        break;
-                    default:
-                        timeDice = `<i class="fas fa-dice-d6"></i>`;
-                }
+                timeDice = dicePicker(resultTime);
 
                 for(r = 0; r > resultTime.length; r++) {
                     StaticRange

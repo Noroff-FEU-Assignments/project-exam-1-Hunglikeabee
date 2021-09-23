@@ -41,32 +41,6 @@ textArea.addEventListener("keyup", () => {
     checkTextArea();
 });
 
-function checkName() {
-    if(checkForm(fullName.value, fulleNameLength)) {
-        fullNameError.style.display = "none";
-    }
-};
-
-function checkEmail() {
-    if(validateEmail(email.value)) {
-        emailError.style.display = "none";
-    }
-};
-
-function checkSubject() {
-    if(checkForm(subject.value, subjectLength)) {
-        subjectError.style.display = "none";
-    }
-};
-
-function checkTextArea() {
-    if(checkForm(textArea.value, textAreaLength)) {
-        textAreaError.style.display = "none";
-    }
-};
-
-
-
 fullName.addEventListener("focusout", () => {
     checkButton();
     checkFocusOutName();
@@ -87,66 +61,15 @@ textArea.addEventListener("focusout", () => {
     checkFocusOutTextArea();
 });
 
-function checkFocusOutName() {
-    if(checkForm(fullName.value, fulleNameLength)) {
-        fullNameError.style.display = "none";
-    }
-    else {
-        fullNameError.style.display = "block";
-    }
-};
-
-function checkFocusOutEmail() {
-    if(validateEmail(email.value)) {
-        emailError.style.display = "none";
-    }
-    else {
-        emailError.style.display = "block";
-    }
-};
-
-function checkFocusOutSubject() {
-    if(checkForm(subject.value, subjectLength)) {
-        subjectError.style.display = "none";
-    }
-    else {
-        subjectError.style.display = "block";
-    }
-};
-
-function checkFocusOutTextArea() {
-    if(checkForm(textArea.value, textAreaLength)) {
-        textAreaError.style.display = "none";
-    }
-    else {
-        textAreaError.style.display = "block";
-    }
-};
-
 function checkButton() {
     if(checkForm(fullName.value, fulleNameLength) && checkForm(subject.value, subjectLength) && checkForm(textArea.value, textAreaLength) && validateEmail(email.value)) {
         button.disabled = false;
     }
     else {
         button.disabled = true;
-        message.innerHTML = "";
+        message.style.display = "none";
     }
 
-};
-
-function checkForm(value, length) {
-    if(value.trim().length >= length) {
-        return true;
-    }
-    else {
-        return false;
-    }
-};
-
-function validateEmail(email) {
-    const regEx = /\S+@\S+\.\S+/;
-    const patternMatches = regEx.test(email);
-    return patternMatches;
 };
 
 async function validateForm(event) {
@@ -173,8 +96,6 @@ async function validateForm(event) {
     
     form.reset();
     button.disabled = true;
-    message.innerHTML = "";
-    message.style.display = "none";
 };
 
 form.addEventListener("submit", validateForm);
