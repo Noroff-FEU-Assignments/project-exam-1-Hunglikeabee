@@ -57,6 +57,11 @@ body {
   color: var(--black);
 }
 
+
+
+
+
+
 /* Header */
 
 header {
@@ -81,6 +86,11 @@ header {
   margin-left: 20px;
   margin-top: 10px;
 }
+
+
+
+
+
 
 /* Hamburger menu */
 .hamburger__container {
@@ -129,6 +139,11 @@ header {
   display: grid;
 }
 
+
+
+
+
+
 /* Menu */
 
 button .fas:hover, .fab:hover {
@@ -165,6 +180,12 @@ li a {
  box-shadow: 0px 0px 7px 4px rgba(0, 0, 0, 0.2);
  border-radius: var(--defaultradius)
 }
+
+
+
+
+
+
 /* Header scroll styling */
 .scrolled-menu {
   max-width: 1200px;
@@ -190,6 +211,11 @@ li a {
 .body-padding {
   padding-top: 100px;
 }
+
+
+
+
+
 
 /* Search bar */
 
@@ -225,6 +251,11 @@ li a {
   font-size: 20px;
 }
 
+
+
+
+
+
 /* Main */
 
 main {
@@ -244,6 +275,11 @@ h1 {
   padding: 30px;
   color: var(--white);
 }
+
+
+
+
+
 
 /*  POSTS */
 
@@ -274,8 +310,7 @@ h1 {
 }
 
 .posts:hover {
-  padding: 19px;
-  border: 1px solid var(--black);
+  box-shadow: 0px 0px 7px 4px rgba(0, 0, 0, 0.8);
 }
 
 .posts-image {
@@ -294,6 +329,10 @@ h1 {
   height: 3px;
   background-color: var(--black);
 }
+
+
+
+
 
 
 /* Footer */
@@ -357,6 +396,11 @@ footer {
   text-align: center;
 }
 
+
+
+
+
+
 /* Loading wheel*/
 
 .loading-wheel {
@@ -381,7 +425,12 @@ footer {
   }
 }
 
-/* Media Querys */
+
+
+
+
+
+/* Media Queries */
 
 @media only screen and (min-width: 801px) {
   .hamburger__dropdown-menu a {

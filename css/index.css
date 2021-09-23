@@ -26,6 +26,10 @@ main {
   padding: 0px 20px;
 }
 
+
+
+
+
 /* The Carousel */
 
 .carousel__container {
@@ -44,8 +48,7 @@ main {
 }
 
 .carousel-boxes:hover {
-  padding: 9px;
-  border: 1px solid var(--black);
+  box-shadow: 0px 0px 7px 4px rgba(0, 0, 0, 0.8);
 }
 
 .carousel__container button {
@@ -105,6 +108,13 @@ main {
   margin: 0 auto;
   border-radius: var(--defaultradius);
 }
+
+
+
+
+
+
+/* Media Queries */
 
 @media only screen and (max-width: 850px) {
   .index-carousel {
