@@ -128,7 +128,7 @@ getMyBlog();
 
 
 
-/* Comment form and error checking */
+/* Comment form */
 
 const fullName = document.querySelector("#comment__form-fullname");
 const textArea = document.querySelector("#comment__form-textarea");
