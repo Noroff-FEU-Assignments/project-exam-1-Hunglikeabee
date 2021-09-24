@@ -13,6 +13,7 @@ main {
 .about-me {
     background-color: var(--offwhite);
     max-width: 400px;
+    align-self: center;
 }
 
 .about-me h1 {
@@ -22,13 +23,13 @@ main {
 }
 
 .about-me p {
-    text-align: center;
+    text-align: left;
     padding: 10px;
 }
 
 .image-dad {
-    width: 200px;
-    height: 400px;
+    width: 300px;
+    height: 450px;
     max-width: 90%;
     background-image: url("../images/dadleon.png");
     background-position: center;
@@ -36,14 +37,19 @@ main {
     background-repeat: no-repeat;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     .about__container {
         flex-direction: column;
     }
 
-    .image-dad {
+    .about-me {
         margin: 0 auto;
-        height: 300px;
-        width: 150px;
+    }
+
+    .image-dad {
+        
+        margin: 20px auto;
+        height: 400px;
+        width: 250px;
     }
 }
