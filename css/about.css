@@ -1,6 +1,18 @@
+main {
+    background-color: var(--offwhite);
+}
+
+.about__container {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+    justify-content: space-around;
+    padding: 40px 10px;
+}
+
 .about-me {
     background-color: var(--offwhite);
-
+    max-width: 400px;
 }
 
 .about-me h1 {
@@ -11,5 +23,27 @@
 
 .about-me p {
     text-align: center;
-    padding: 30px;
+    padding: 10px;
+}
+
+.image-dad {
+    width: 200px;
+    height: 400px;
+    max-width: 90%;
+    background-image: url("../images/dadleon.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 600px) {
+    .about__container {
+        flex-direction: column;
+    }
+
+    .image-dad {
+        margin: 0 auto;
+        height: 300px;
+        width: 150px;
+    }
 }
