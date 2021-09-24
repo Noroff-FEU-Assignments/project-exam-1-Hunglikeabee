@@ -83,6 +83,9 @@ async function getMyBlog() {
         }
         loadComments();
 
+
+
+        
         /* Modal for the images */
 
 
