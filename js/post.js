@@ -49,7 +49,7 @@ async function getMyBlog() {
     
                 for(let j = 0; j < resultMedia.length; j++) {
                     if(resultMedia[j].post === resultPosts[i].id) {
-                        postContainer.innerHTML += `<div class="image-caption"><div title="${resultMedia[j].alt_text}" class="id${resultMedia[j].post} modal" style="background-image: url(${resultMedia[j].media_details.sizes.large.source_url})"><i class="fas fa-search-plus"></i></div>
+                        postContainer.innerHTML += `<div class="image-caption"><img alt="${resultMedia[j].alt_text}" class="id${resultMedia[j].post} modal" src="${resultMedia[j].media_details.sizes.large.source_url}">
                                                     <div class="caption">${resultMedia[j].caption.rendered}</div></div>`;
                     }
             }
@@ -100,7 +100,8 @@ async function getMyBlog() {
 
         function displayModal(event) {
             modalContainer.style.display = "flex";
-            modalImage.innerHTML = `<div class="modal-image" style="${event.target.attributes.style.textContent}"></div>`
+            console.log(event.target.attributes.src.textContent);
+            modalImage.innerHTML = `<div class="modal-image" style="background-image: url(${event.target.attributes.src.textContent})"></div>`
         }
 
         modalClose.addEventListener("click", () => {
