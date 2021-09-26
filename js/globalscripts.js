@@ -18,18 +18,20 @@ searchText.addEventListener("keyup", (e) => {
 
 
 /* Scroll event navigation */
-
+const hamburgerMenu = document.querySelector(".hamburger__dropdown-menu")
 const headerMenu = document.querySelector(".header-menu")
 
 function scrollFunction() {
     const scroll = window.scrollY;
     
     if (scroll > 100) {
+        hamburgerMenu.classList.add("scrolled-hamburger")
         headerMenu.classList.add("scrolled-menu")
         document.body.classList.add("body-padding")
 
     }
-    else  if ( scroll < 1){
+    else  if ( scroll < 40){
+        hamburgerMenu.classList.remove("scrolled-hamburger")
         headerMenu.classList.remove("scrolled-menu")
         document.body.classList.remove("body-padding")
     }

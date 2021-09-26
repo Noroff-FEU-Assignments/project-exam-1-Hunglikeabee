@@ -200,6 +200,21 @@ li a {
   z-index: 100;
 }
 
+
+.scrolled-menu > a .logo, .scrolled-menu > .hamburger__container nav  {
+  height: 40px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.scrolled-menu > .hamburger__container ul {
+  margin-top: 4px;
+}
+
+.scrolled-hamburger {
+  top: 40px;
+}
+
 @keyframes menudown {
   0% {
     top: -10%;
