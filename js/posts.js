@@ -33,9 +33,9 @@ async function getMyBlog() {
                                     <div class="posts postid-${resultPosts[i].id}">
                                     <h2 class="posts-title">${resultPosts[i].title.rendered}</h2>
                                     <div class="posts-image" style="background-image: url(${resultPosts[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url})"></div>
-                                    <div class="time-dif">
-                                        <div aria-hidden="true">Time used: ${timeDice}</div>
-                                        <div aria-hidden="true">Difficulty: ${difficultyDice}</div>
+                                    <div class="dice__container">
+                                        <div aria-hidden="true" class="time-dif">Time used: ${timeDice}</div>
+                                        <div aria-hidden="true" class="time-dif">Difficulty: ${difficultyDice}</div>
                                     </div><div class="text-posts" aria-hidden="true">${resultPosts[i].excerpt.rendered}</div></div></a>
                                     <div class="divider-line"></div>`;
     

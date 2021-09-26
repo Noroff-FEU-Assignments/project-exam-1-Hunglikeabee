@@ -5,6 +5,11 @@
   src: url("../fonts/Roboto-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("../fonts/RobotoSlab-VariableFont_wght.ttf") format("truetype");
+}
+
 /* Global fixes */
 p {
   margin: 0;
@@ -18,11 +23,7 @@ p {
 }
 
 h1,h2,h3 {
-  font-family: var(--defaultfont);
-}
-
-p {
-  font-family: var(--defaultfont);
+  font-family: var(--headerfont);
 }
 
 /* Font sizes */
@@ -272,7 +273,7 @@ main {
 h1 {
   max-width: 800px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 30px 10px;
   color: var(--white);
 }
 
@@ -289,8 +290,10 @@ h1 {
 }
 
 .time-dif {
-  padding: 5px;
+  font-size: 14px;
   text-align: right;
+  margin-right: 10px;
+  margin-top: 4px;
 }
 
 .posts__container {
@@ -448,7 +451,7 @@ footer {
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .hamburger__icon-menu {
@@ -471,11 +474,11 @@ footer {
   }
 
   h1 {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   h2 {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   p {
